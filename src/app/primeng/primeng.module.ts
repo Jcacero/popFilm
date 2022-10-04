@@ -5,6 +5,8 @@ import {MenubarModule} from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'primeng/api';
+import {FormsModule} from '@angular/forms';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 @NgModule({
   declarations: [],
   imports: [
@@ -12,14 +14,18 @@ import { SharedModule } from 'primeng/api';
     MenubarModule,
     InputTextModule,
     ButtonModule,
-    SharedModule
+    SharedModule,
+    AutoCompleteModule,
+    FormsModule
 
   ],
   exports:[
     MenubarModule,
     InputTextModule,
     ButtonModule,
-    SharedModule
+    SharedModule,
+    AutoCompleteModule,
+    FormsModule
   ]
 })
 export class PrimengModule { }

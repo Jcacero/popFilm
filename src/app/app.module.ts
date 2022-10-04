@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { PrimengModule } from './primeng/primeng.module';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,
