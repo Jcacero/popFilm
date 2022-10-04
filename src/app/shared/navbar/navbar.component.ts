@@ -15,66 +15,21 @@ export class NavbarComponent implements OnInit {
     this.items = [
       {
           label:'Peliculas',
-          items:[
-              {
-                  label:'Terror',
-                  icon:'pi pi-fw pi-plus',
-              },
-              {
-                label:'Comedia',
-                icon:'pi pi-fw pi-plus',
-            },
-            {
-                label:'Documentales',
-                icon:'pi pi-fw pi-plus',
-            }
-          ]
+          routerLink:'/peliculas'
       },
       {
           label:'Series',
-          items:[
-              {
-                  label:'Left',
-                  icon:'pi pi-fw pi-align-left'
-              },
-              {
-                  label:'Right',
-                  icon:'pi pi-fw pi-align-right'
-              },
-              {
-                  label:'Center',
-                  icon:'pi pi-fw pi-align-center'
-              },
-              {
-                  label:'Justify',
-                  icon:'pi pi-fw pi-align-justify'
-              },
-
-          ]
+          routerLink:'series'
       },
       {
           label:'Personas',
           icon:'pi pi-fw pi-user',
-          items:[
-              {
-                  label:'Actores / Actrices',
-                  icon:'pi pi-fw pi-user-plus',
-
-              },
-              {
-                  label:'Directores',
-                  icon:'pi pi-fw pi-user-minus',
-
-              },
-              {
-                  label:'Guionistas',
-                  icon:'pi pi-fw pi-users',
-              }
-          ]
+          routerLink:'/personas'
       },
       {
           label:'Noticias',
           icon:'pi pi-fw pi-calendar',
+          routerLink:'noticias'
       },
   ];
   }

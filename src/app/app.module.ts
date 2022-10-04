@@ -6,13 +6,12 @@ import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
+import { ComponentsModule } from './components/components.module';
 import { PrimengModule } from './primeng/primeng.module';
-import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AutocompleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,6 +19,7 @@ import { AutocompleteComponent } from './components/autocomplete/autocomplete.co
     SharedModule,
     PagesModule,
     PrimengModule,
+    ComponentsModule,
     BrowserAnimationsModule
   ],
   exports:[],
