@@ -1,9 +1,7 @@
 
 <p-menubar [model]="items" [style]="{backgroundColor:'var(--red-50)'}">
     <ng-template pTemplate="start" >
-        <img src="../../../assets/Pop FilmLetras.png" height="70" class="logoNav mr-2">
+        <a routerLink="/home"><img src="../../../assets/Pop FilmLetras.png" height="70" class="logoNav mr-2"></a>
     </ng-template>
-    <ng-template pTemplate="end">
-        <input type="text" pInputText placeholder="Search">
-    </ng-template>  
+    <input class="buscador" type="text" pInputText placeholder="Buscar">
 </p-menubar>
