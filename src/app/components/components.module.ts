@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { PrimengModule } from '../primeng/primeng.module';
+
+//componentes
+import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { CarouselComponent } from './crousel/carousel.component';
 
 
 @NgModule({
   declarations: [
-    AutocompleteComponent
+    AutocompleteComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,
@@ -14,6 +18,7 @@ import { PrimengModule } from '../primeng/primeng.module';
   ],
   exports:[
     AutocompleteComponent,
+    CarouselComponent,
     PrimengModule
   ]
 })

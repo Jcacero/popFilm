@@ -5,3 +5,8 @@
 .buscador{
     border-radius: 30px;
 }
+.botonNav{
+    margin: 10px;
+    color: whitesmoke;
+    font-size: smaller;
+}

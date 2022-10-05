@@ -8,7 +8,8 @@ import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'primeng/api';
 import {FormsModule} from '@angular/forms';
 import {AutoCompleteModule} from 'primeng/autocomplete';
-
+import {TabViewModule} from 'primeng/tabview';
+import {CarouselModule} from 'primeng/carousel';
 @NgModule({
   declarations: [],
   imports: [
@@ -18,7 +19,9 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     ButtonModule,
     SharedModule,
     AutoCompleteModule,
-    FormsModule
+    FormsModule,
+    TabViewModule,
+    CarouselModule
 
   ],
   exports:[
@@ -27,7 +30,9 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     ButtonModule,
     SharedModule,
     AutoCompleteModule,
-    FormsModule
+    FormsModule,
+    TabViewModule,
+    CarouselModule
   ]
 })
 export class PrimengModule { }

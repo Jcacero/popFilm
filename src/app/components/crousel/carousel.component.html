@@ -1,0 +1,20 @@
+<p-carousel [value]="multimedia" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
+    <ng-template let-i pTemplate="item">
+        <div class="product-item">
+            <div class="product-item-content">
+                <div class="p-mb-3">
+                    <img src="{{i.imagenPelicula}}" [alt]="i.titulo" class="product-image" />
+                </div>
+                <div>
+                    <h3 class="p-mb-1">{{i.titulo}}</h3>
+                    <h3 class="p-mt-0 p-mb-3">${{i.descripcion}}</h3>
+                    <div class="car-buttons mt-3">
+                        <p-button type="button" styleClass="p-button p-button-rounded mr-2" icon="pi pi-search"></p-button>
+                        <p-button type="button" styleClass="p-button-success p-button-rounded mr-2" icon="pi pi-shopping-bag"></p-button>
+                        <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-shopping-cart"></p-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-carousel>

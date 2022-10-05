@@ -1,9 +1,11 @@
 
-<p-menubar [model]="items" [style]="{backgroundColor:'var(--red-50)'}">
+<p-menubar [model]="items" [style]=" {backgroundColor:'var(--red-800)'}">
     <ng-template pTemplate="start" >
-        <a routerLink="/home"><img src="../../../assets/Pop FilmLetras.png" height="70" class="logoNav mr-2"></a>
+        <a routerLink="/home"><img src="../../../assets/imagenes/Pop FilmLetras.png" height="70" class="logoNav mr-2"></a>
     </ng-template>
+    
     <ng-template pTemplate="end">
         <input class="buscador" type="text" pInputText placeholder="Buscar">
+        <button pButton pRipple type="button" label="Ingresar" icon="pi pi-user"  class="botonNav p-button-text"></button>
     </ng-template>
 </p-menubar>
