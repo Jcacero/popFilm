@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
       {
           label:'Peliculas',
           routerLink:'/peliculas',
-          iconStyle:'danger'
       },
       {
           label:'Series',

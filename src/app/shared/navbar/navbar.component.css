@@ -10,3 +10,9 @@
     color: whitesmoke;
     font-size: smaller;
 }
+
+
+
+:host ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+    color: rgb(230, 230, 230);
+}
