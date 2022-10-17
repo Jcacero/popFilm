@@ -4,13 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
 import { PrimengModule } from './primeng/primeng.module';
 import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { environment } from '../environments/environment';
     PagesModule,
     PrimengModule,
     ComponentsModule,
-    AngularFirestore,
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
   ],

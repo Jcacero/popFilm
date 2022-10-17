@@ -1,5 +1,6 @@
-export interface Peliculas {
+export interface MultimediaModel {
     titulo:string,
+    tipo:string,
     descripcion:string,
     genero:string,
     año:string,

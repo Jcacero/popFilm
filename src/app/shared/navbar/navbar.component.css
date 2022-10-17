@@ -3,16 +3,18 @@
     border-radius: 50%;
 }
 .buscador{
-    border-radius: 30px;
+    border-radius: 20px;
+}
+@media (max-width: 575px) { 
+    .buscador{
+        visibility: hidden;
+    }
 }
 .botonNav{
     margin: 10px;
     color: whitesmoke;
     font-size: smaller;
 }
-
-
-
 :host ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
     color: rgb(230, 230, 230);
 }
