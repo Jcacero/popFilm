@@ -22,9 +22,9 @@ export class NavbarComponent implements OnInit {
           routerLink:'/series'
       },
       {
-          label:'Personas',
+          label:'Cineastas',
           icon:'pi pi-fw pi-user',
-          routerLink:'/personas'
+          routerLink:'/cineastas'
       },
       {
           label:'Noticias',

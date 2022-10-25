@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Cineastas } from 'src/app/models/cineastas';
+import { CineastasService } from 'src/app/servicios/cineastas.service';
 @Component({
   selector: 'app-cineastas',
   templateUrl: './cineastas.component.html',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CineastasComponent implements OnInit {
 
-  constructor() { }
+  arregloCineastas:Cineastas []
+
+  constructor(private servicioCineastas:CineastasService) { }
 
   ngOnInit(): void {
+    this.servicioCineastas.obtenerCineastas().subscribe(cineasta=>this.arregloCineastas=cineasta)
   }
 
 }
