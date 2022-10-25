@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
       },
       {
           label:'Series',
-          routerLink:'series'
+          routerLink:'/series'
       },
       {
           label:'Personas',

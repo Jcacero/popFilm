@@ -9,7 +9,7 @@ import { NoticiasComponent } from './pages/noticias/noticias.component';
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'home', component:HomeComponent},
-  {path:'peliculas', component:PeliculasComponent},
+  {path:'peliculas', component:PeliculasComponent },
   {path:'series', component:SeriesComponent},
   {path:'personas', component:PersonasComponent},
   {path:'noticias', component:NoticiasComponent},

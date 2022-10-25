@@ -1,18 +1,20 @@
-<p-carousel [value]="miMultimedia" [numVisible]="3" [numScroll]="3" [showIndicators]="false" [circular]="false" [responsiveOptions]="responsiveOptions">
-    <ng-template let-i pTemplate="item">
-        <div class="product-item">
-            <div class="product-item-content">
-                <div class="p-mb-3">
-                    <img src="{{i.imagenPelicula}}" [alt]="i.titulo" style="width: 50%;height:75%;margin:0px" class="product-image" />
-                </div>
-                <div>
-                    <h3 class="p-mb-1">{{i.titulo}}</h3>
-                    <p class="p-mt-0 p-mb-3">{{i.genero}}</p>
-                    <div class="car-buttons mt-3">
-                        <button pButton pRipple type="button" label="Más Información" class="p-button-raised p-button-info"></button>
+<div class="carouselDiseño">  
+    <p-carousel [value]="miMultimedia" [numVisible]="3" [numScroll]="3" [showIndicators]="false" [circular]="false" [responsiveOptions]="responsiveOptions">
+        <ng-template let-i pTemplate="item">
+            <div class="product-item">
+                <div class="product-item-content">
+                    <div class="p-mb-3">
+                        <img src="{{i.imagenPelicula}}" [alt]="i.titulo" style="width: 50%;height:75%;margin:0px" class="product-image" />
+                    </div>
+                    <div>
+                        <h3 class="p-mb-1">{{i.titulo}}</h3>
+                        <p class="p-mt-0 p-mb-3">{{i.genero}}</p>
+                        <div class="car-buttons mt-3">
+                            <button pButton pRipple type="button" label="Más Información" class="p-button-raised p-button-info"></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </ng-template>
-</p-carousel>
+        </ng-template>
+    </p-carousel>
+</div> 

@@ -5,6 +5,7 @@
     text-align: center;
     padding: 2rem 0;
     color: black;
+    background-color:var(--red-900);
 }
 
 .product-image {

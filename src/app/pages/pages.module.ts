@@ -6,8 +6,8 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { HomeComponent } from './home/home.component';
 import { PeliculasComponent } from './peliculas/peliculas.component';
 import { SeriesComponent } from './series/series.component';
-import { PersonasComponent } from './personas/personas.component';
 import { NoticiasComponent } from './noticias/noticias.component';
+import { CineastasComponent } from './cineastas/cineastas.component';
 
 
 
@@ -17,12 +17,16 @@ import { NoticiasComponent } from './noticias/noticias.component';
     HomeComponent, 
     PeliculasComponent, 
     SeriesComponent, 
-    PersonasComponent, 
-    NoticiasComponent ],
+    NoticiasComponent, 
+    CineastasComponent ],
   exports:[
     HomeComponent,
     ComponentsModule,
-    PrimengModule
+    PrimengModule,
+    PeliculasComponent, 
+    SeriesComponent, 
+    NoticiasComponent, 
+    CineastasComponent
   ],
   imports: [
     CommonModule,
