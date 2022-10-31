@@ -11,10 +11,9 @@ import { ComponentsModule } from './components/components.module';
 import { PrimengModule } from './primeng/primeng.module';
 import { environment } from '../environments/environment';
 
-
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

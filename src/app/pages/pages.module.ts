@@ -8,7 +8,8 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
 import { SeriesComponent } from './series/series.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CineastasComponent } from './cineastas/cineastas.component';
-
+import { LoginComponent } from '../components/login/login.component';
+import { AdminComponent } from '../components/admin/admin.component';
 
 
 
@@ -18,7 +19,10 @@ import { CineastasComponent } from './cineastas/cineastas.component';
     PeliculasComponent, 
     SeriesComponent, 
     NoticiasComponent, 
-    CineastasComponent ],
+    CineastasComponent,
+    LoginComponent,
+    AdminComponent 
+  ],
   exports:[
     HomeComponent,
     ComponentsModule,
@@ -26,7 +30,10 @@ import { CineastasComponent } from './cineastas/cineastas.component';
     PeliculasComponent, 
     SeriesComponent, 
     NoticiasComponent, 
-    CineastasComponent
+    CineastasComponent,
+    LoginComponent,
+    AdminComponent
+  
   ],
   imports: [
     CommonModule,
