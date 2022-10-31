@@ -8,8 +8,6 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
 import { SeriesComponent } from './series/series.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CineastasComponent } from './cineastas/cineastas.component';
-import { MasInfoPeliculasComponent } from './peliculas/mas-info-peliculas/mas-info-peliculas.component';
-
 
 
 
@@ -19,7 +17,7 @@ import { MasInfoPeliculasComponent } from './peliculas/mas-info-peliculas/mas-in
     PeliculasComponent, 
     SeriesComponent, 
     NoticiasComponent, 
-    CineastasComponent, MasInfoPeliculasComponent ],
+    CineastasComponent,],
   exports:[
     HomeComponent,
     ComponentsModule,
