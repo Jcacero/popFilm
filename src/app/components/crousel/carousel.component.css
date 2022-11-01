@@ -1,3 +1,14 @@
+img{
+    flex: 0 0 100%;
+    padding: 4px;
+}
+.carouselDiseño{
+    max-width: 55%;
+    display: inline-block;
+    background-size:contain;
+    background-repeat: no-repeat;
+    
+}
 .product-item-content {
     border: 1px solid var(--surface-d);
     border-radius: 3px;

@@ -9,7 +9,6 @@ import { SeriesComponent } from './series/series.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CineastasComponent } from './cineastas/cineastas.component';
 import { LoginComponent } from '../components/login/login.component';
-import { AdminComponent } from '../components/admin/admin.component';
 
 
 
@@ -20,8 +19,7 @@ import { AdminComponent } from '../components/admin/admin.component';
     SeriesComponent, 
     NoticiasComponent, 
     CineastasComponent,
-    LoginComponent,
-    AdminComponent 
+    LoginComponent
   ],
   exports:[
     HomeComponent,
@@ -31,8 +29,7 @@ import { AdminComponent } from '../components/admin/admin.component';
     SeriesComponent, 
     NoticiasComponent, 
     CineastasComponent,
-    LoginComponent,
-    AdminComponent
+    LoginComponent
   
   ],
   imports: [

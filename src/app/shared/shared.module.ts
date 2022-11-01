@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { PrimengModule } from '../primeng/primeng.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DialogModule } from 'primeng/dialog';
+
 
 @NgModule({
   declarations: [
@@ -12,12 +15,18 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DialogModule
   ],
   exports:[
     NavbarComponent,
     FooterComponent,
-    PrimengModule
+    PrimengModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DialogModule
   ]
 })
 export class SharedModule { }

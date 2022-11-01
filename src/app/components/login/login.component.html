@@ -1,1 +1,11 @@
-<p>login works!</p>
+
+<form [formGroup]="loginForm">
+    <span class="p-float-label m-4">
+        <input type="text" pInputText formControlName="username">
+        <label for="float-input">Username</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="contrasena">
+        <label for="float-input">Contraseña</label>
+    </span>
+</form>
