@@ -9,6 +9,7 @@ export class CarouselComponent implements OnInit {
 
 	responsiveOptions;
   @Input() miMultimedia:any[]
+  servicioMultimedia: any;
 
   constructor() { 
     this.responsiveOptions = [
@@ -27,12 +28,14 @@ export class CarouselComponent implements OnInit {
           numVisible: 1,
           numScroll: 1
       }
-  ];
+    ];
   }
 
   ngOnInit(): void {
 
+
     
   }
+ 
 
 }

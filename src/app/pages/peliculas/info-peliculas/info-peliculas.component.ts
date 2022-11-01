@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MultimediaService } from 'src/app/servicios/multimedia.service';
 
 @Component({
   selector: 'app-info-peliculas',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoPeliculasComponent implements OnInit {
 
-  constructor() { }
+  constructor(_servicioMultimedia:MultimediaService) { }
 
   ngOnInit(): void {
+  }
+  getInfoPelis(){
+    this._servicioMultimedia.obtenerMultimedia().subscribe((data)=>{
+      this.peliculas = [];
+    }
+
   }
 
 }

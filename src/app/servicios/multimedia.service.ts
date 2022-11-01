@@ -18,4 +18,8 @@ export class MultimediaService {
       map(action=>action.map(a=>a.payload.doc.data()))
     )
   }
+
+  modificarMultimedia(id_multimedia:string,nuevaData:MultimediaModel,){
+    return this.db.collection('multimedia').doc(id_multimedia).update(nuevaData)
+ }
 }
