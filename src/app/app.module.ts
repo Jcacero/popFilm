@@ -11,13 +11,11 @@ import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
 import { PrimengModule } from './primeng/primeng.module';
 import { environment } from '../environments/environment';
-import { CardComponent } from './components/card/card.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
