@@ -7,7 +7,7 @@ export interface Cineastas {
     residencia:string,
     religion:string,
     educacion:string,
-    añosActivo:string,
+    anosActivo:string,
     curiosidad:string,
     premios:string,
     cantMultimedia:string,

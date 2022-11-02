@@ -1,5 +1,25 @@
-<div *ngFor="let i of arregloCineastas">
-    <p>Apodo: {{i.nombreApodo}}</p>
-    <p>Nombre Completo: {{i.nombreCompleto}}</p>
-    <img src="{{i.imagenCineasta}}" width="300px" alt="imagen-actor">
-</div>
+<p-card header="{{i.nombreApodo}}" subheader="{{i.rol}}" [style]="{width: '360px'}" styleClass="p-card-shadow" position="center" *ngFor="let i of arregloCineastas">
+    <ng-template pTemplate="header">
+        <img class="img-card" alt="Card" src="{{i.imagenCineasta}}">
+    </ng-template>
+    <p-button (click)="showModalDialog()" s label="Show"></p-button>
+    <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+        [draggable]="false" [resizable]="false">
+        <p>nombre completo: {{i.nombreCompleto}}</p>
+        <p>edad: {{i.edad}}</p>
+        <p>fecha de nacimiento: {{i.fechaNac}}</p>
+        <p>lugar de nacimiento: {{i.lugarNac}}</p>
+        <p>residencia: {{i.residencia}}</p>
+        <p>educacion: {{i.educacion}}</p>
+        <p>años activo: {{i.anosActivo}}</p>
+        <p>peliculas realizadas: {{i.cantMultimedia}}</p>
+        <p>trabajos destacados: {{i.trabajosDestacados}}</p>
+        <p>premios: {{i.premios}}</p>
+        <p>religion: {{i.religion}}</p>
+        <p>curiosidad: {{i.curiosidad}}</p>
+        <p>descripcion: {{i.descripcion}}</p>
+            <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+            </ng-template>
+    </p-dialog>
+</p-card>

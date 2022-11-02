@@ -8,6 +8,9 @@ import { PeliculasComponent } from './peliculas/peliculas.component';
 import { SeriesComponent } from './series/series.component';
 import { NoticiasComponent } from './noticias/noticias.component';
 import { CineastasComponent } from './cineastas/cineastas.component';
+import {CardModule} from 'primeng/card';
+import {DialogModule} from 'primeng/dialog';
+
 
 
 
@@ -31,7 +34,9 @@ import { CineastasComponent } from './cineastas/cineastas.component';
   imports: [
     CommonModule,
     ComponentsModule,
-    PrimengModule
+    PrimengModule,
+    CardModule,
+    DialogModule
   ]
 })
 export class PagesModule { }

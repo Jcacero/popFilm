@@ -7,6 +7,16 @@ import { CineastasService } from 'src/app/servicios/cineastas.service';
   styleUrls: ['./cineastas.component.css']
 })
 export class CineastasComponent implements OnInit {
+  displayModal: boolean;
+  showModalDialog() {
+    this.displayModal = true;
+  }
+
+  display: boolean = false;
+
+  showDialog() {
+      this.display = true;
+  }
 
   arregloCineastas:Cineastas []
 
