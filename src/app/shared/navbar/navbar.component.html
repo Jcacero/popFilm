@@ -2,12 +2,27 @@
 <p-menubar [model]="items" [style]=" {backgroundColor:'var(--red-900)'}">
     
     <ng-template pTemplate="start" >
-        <a routerLink="/home"><img src="../../../assets/imagenes/PopFilmLOGO3ajustado.png" height="70 " class="logoNav mr-2"></a>
+        <a routerLink="/home"><img src="../../../assets/imagenes/LogoPopFilm (1).png" height="70 " class="logoNav mr-2"></a>
     </ng-template>
     
     <ng-template pTemplate="end">
-        <input class="buscador" type="text" pInputText placeholder="Buscar">
-        <button pButton pRipple type="button" label="Ingresar" icon="pi pi-user"  class="botonNav p-button-text"></button>
+        <input class="buscador" type="text" pInputText placeholder="Buscar"> 
+        <button pButton pRipple type="button" style="color:white" label="Iniciar" icon="pi pi-sign-in" (click)="mostrarDialogo()" class="p-button-rounded p-button-text"></button>
     </ng-template>
-    
 </p-menubar>
+
+        <p-dialog header="Ingresar" [(visible)]="modalVisible"> 
+            Ingrese sesion
+            <form [formGroup]="loginForm">
+                <span class="p-float-label m-4" >
+                    <input type="text" pInputText formControlName="nombreUsu">
+                    <label for="float-input">Nombre de Usuario</label>
+                </span>
+                <span class="p-float-label m-4">
+                    <input type="text" pInputText formControlName="contraUsu">
+                    <label for="float-input">Contraseña</label>
+                </span>
+                <!-- <button pButton pRipple type="button" label="Aceptar" (click)="verificarUsuario()" class="p-button-rounded p-button-text"></button> -->
+            </form>
+        </p-dialog> 
+   

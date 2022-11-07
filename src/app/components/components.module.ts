@@ -5,6 +5,7 @@ import { PrimengModule } from '../primeng/primeng.module';
 //componentes
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { CarouselComponent } from './crousel/carousel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,12 +15,16 @@ import { CarouselComponent } from './crousel/carousel.component';
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     AutocompleteComponent,
     CarouselComponent,
-    PrimengModule
+    PrimengModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }

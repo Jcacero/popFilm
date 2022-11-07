@@ -11,14 +11,14 @@ import { CineastasComponent } from './cineastas/cineastas.component';
 
 
 
-
 @NgModule({
   declarations: [
     HomeComponent, 
     PeliculasComponent, 
     SeriesComponent, 
     NoticiasComponent, 
-    CineastasComponent ],
+    CineastasComponent
+  ],
   exports:[
     HomeComponent,
     ComponentsModule,
@@ -27,6 +27,7 @@ import { CineastasComponent } from './cineastas/cineastas.component';
     SeriesComponent, 
     NoticiasComponent, 
     CineastasComponent
+  
   ],
   imports: [
     CommonModule,
