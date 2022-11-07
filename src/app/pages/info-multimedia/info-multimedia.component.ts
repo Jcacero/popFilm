@@ -11,7 +11,7 @@ import { MultimediaService } from 'src/app/servicios/multimedia.service';
 export class InfoMultimediaComponent implements OnInit {
 
   arregloMultimedia: MultimediaModel [];
-  multimediaSeleccionada: MultimediaModel|undefined;
+  multimediaSeleccionada: MultimediaModel|any;
   
   constructor(private servicioMultimedia:MultimediaService, private router: Router) { }
 
