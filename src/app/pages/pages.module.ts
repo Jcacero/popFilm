@@ -8,7 +8,6 @@ import { CineastasComponent } from './cineastas/cineastas.component';
 import { InfoMultimediaComponent } from './info-multimedia/info-multimedia.component';
 
 
-
 @NgModule({
   declarations: [
     SeriesComponent, 

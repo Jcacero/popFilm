@@ -5,6 +5,7 @@ import { PrimengModule } from '../primeng/primeng.module';
 //componentes
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { CarouselComponent } from './crousel/carousel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FiltroComponent } from './filtro/filtro.component';
 
 
@@ -16,12 +17,16 @@ import { FiltroComponent } from './filtro/filtro.component';
   ],
   imports: [
     CommonModule,
-    PrimengModule
+    PrimengModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports:[
     AutocompleteComponent,
     CarouselComponent,
-    PrimengModule
+    PrimengModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }
