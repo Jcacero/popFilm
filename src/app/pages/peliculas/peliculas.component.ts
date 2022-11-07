@@ -14,6 +14,7 @@ export class PeliculasComponent implements OnInit {
   constructor(private servicioMultimedia:MultimediaService) { }
 
   ngOnInit(): void {
-      this.servicioMultimedia.obtenerMultimedia().subscribe(multimedia=>this.arregloPeliculas2=multimedia)
+      this.servicioMultimedia.obtenerMultimedia().subscribe(multimedia=>
+        this.arregloPeliculas2=multimedia)
   }
 }
