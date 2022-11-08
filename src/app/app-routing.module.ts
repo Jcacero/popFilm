@@ -4,11 +4,13 @@ import { PeliculasComponent } from './pages/peliculas/peliculas.component';
 import { SeriesComponent } from './pages/series/series.component';
 import { CineastasComponent } from './pages/cineastas/cineastas.component';
 import { InfoMultimediaComponent } from './pages/info-multimedia/info-multimedia.component';
+import { IniciarSesionComponent } from './pages/iniciar-sesion/iniciar-sesion.component';
 const routes: Routes = [
   {path:'',component:PeliculasComponent},
   {path:'peliculas', component:PeliculasComponent,},
   {path:'info-multimedia/:id', component:InfoMultimediaComponent,},
   {path:'series', component:SeriesComponent},
+  {path:'iniciar-sesion', component:IniciarSesionComponent},
   {path:'cineastas', component:CineastasComponent},
 ];
 
