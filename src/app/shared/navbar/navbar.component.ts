@@ -17,10 +17,12 @@ export class NavbarComponent implements OnInit {
     this.items = [
       {
           label:'Peliculas',
+          icon:'pi pi-ticket',
           routerLink:'/peliculas',
       },
       {
           label:'Series',
+          icon:'pi pi-ticket',
           routerLink:'/series'
       },
       {

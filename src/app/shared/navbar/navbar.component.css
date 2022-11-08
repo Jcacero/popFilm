@@ -1,34 +1,80 @@
 
+/* NAVBAR */
+/* Logo  */
 .logoNav{
     border-radius: 60%;
+    cursor: pointer;
+    transition: all 0.3s;
 }
+.logoNav:hover{
+    transform: scale(1.1);
+}
+/* Buscador */
 .buscador{
-    border-radius: 50px;
+    border-radius: 100px;
+    background-color: white !important;
 }
 @media (max-width: 575px) { 
     .buscador{
         visibility: hidden;
     }
 }
-
-.icon{
-    color: white;
-}
-.botonNav{
-    margin: 100px;
-    color: rgba(255, 238, 160, 0.226);
-    font-size: smaller;
-}
-
-:host ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
-    color: rgb(255, 255, 255);
+/* Items de menu */
+ ::ng-deep .p-menubar .p-menubar-root-list  {
+    color: rgb(252, 252, 252);
     align-items: flex-start;
     font-weight:bold;
+    background-color: black;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
-.p-menubar{
-    border: 1px solid #dee2e602 !important;
+::ng-deep.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+    color: #f8f9fa;
 }
 
+::ng-deep .p-menubar{
+    border:transparent !important;
+    background-color: black !important;
+}
 
+::ng-deep .p-dialog .p-dialog-header {
+    border-bottom: 0 none;
+    background: #1e1a1a;
+    color: #f9f9f9;
+    padding: 1.5rem;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.p-inputtext {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    color: #ffffff;
+    background: #202020;
+    padding: 0.75rem 2rem;
+    border: 1px solid #4c4c4c;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 90px;
+}
+.p-inputtext:hover {
+    border-color: #ffb833;
+}
+
+::ng-deep .p-dialog .p-dialog-content {
+    background: #1e1a1a;
+    color: #ffb833;
+    padding: 0 1.5rem 2rem 1.5rem;
+    border-bottom: 6px;
+    border: 1px solid #dee2e602
+}
+::ng-deep .p-button.p-button-text {
+    background-color: transparent;
+    color: #e2e2e2;
+    border-color: transparent;
+}
+.p-button.p-button-text:hover {
+    
+    color: #ffb833;
+    border-color: transparent;
+}
