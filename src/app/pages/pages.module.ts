@@ -10,7 +10,7 @@ import { NoticiasComponent } from './noticias/noticias.component';
 import { CineastasComponent } from './cineastas/cineastas.component';
 import {CardModule} from 'primeng/card';
 import {DialogModule} from 'primeng/dialog';
-
+import {CarouselModule} from 'primeng/carousel';
 
 
 
@@ -36,7 +36,8 @@ import {DialogModule} from 'primeng/dialog';
     ComponentsModule,
     PrimengModule,
     CardModule,
-    DialogModule
+    DialogModule,
+    CarouselModule
   ]
 })
 export class PagesModule { }
