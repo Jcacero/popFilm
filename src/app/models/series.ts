@@ -12,5 +12,7 @@ export interface Series {
     reparto:string,
     guion:string,
     direccion:string,
-    musica:string
+    musica:string,
+    numeroTemporadas:string,
+    cantidadCaps:string,
 }
