@@ -1,4 +1,4 @@
-export interface MultimediaModel {
+export interface Series {
     titulo:string,
     tipo:string,
     descripcion:string,
@@ -12,5 +12,7 @@ export interface MultimediaModel {
     reparto:string,
     guion:string,
     direccion:string,
-    musica:string
+    musica:string,
+    numeroTemporadas:string,
+    cantidadCaps:string,
 }
