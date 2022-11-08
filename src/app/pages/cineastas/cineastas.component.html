@@ -1,5 +1,49 @@
-<div *ngFor="let i of arregloCineastas">
-    <p>Apodo: {{i.nombreApodo}}</p>
-    <p>Nombre Completo: {{i.nombreCompleto}}</p>
-    <img src="{{i.imagenCineasta}}" width="300px" alt="imagen-actor">
-</div>
+<!-- 
+        <p-card header="{{i.nombreApodo}}" subheader="{{i.rol}}" [style]="{width: '360px'}" styleClass="p-card-shadow" position="center" *ngFor="let i of arregloCineastas">
+            <ng-template pTemplate="header">
+                <img class="img-card" alt="Card" src="{{i.imagenCineasta}}">
+            </ng-template>
+
+        </p-card> -->
+
+        <!-- FONDO TRIANGULO -->
+        <div class="container__background-triangle">
+            <div class="triangle triangle1"></div>
+            <div class="triangle triangle2"></div>
+            <div class="triangle triangle3"></div>
+        </div>
+        <!-- CARDS -->
+        <div class="container__cards" *ngFor="let i of arregloCineastas">
+            <div class="card">
+                <div class="cover__card">
+                    <img src="{{i.imagenCineasta}}" alt="">
+                </div>
+                <h2>{{i.nombreApodo}}</h2>
+                <p>{{i.rol}}</p>
+                <hr>s
+                <p-button (click)="showModalDialog(i)" label="+info"></p-button>
+
+            </div>
+
+        </div>
+        <!-- FUNCION QUE LLAMA EL DIALOGO -->
+        <p-dialog class="dialog" header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+        [draggable]="false" [resizable]="false">
+        <p>nombre completo: {{cineastaSelec.nombreCompleto}}</p>
+        <p>edad: {{cineastaSelec.edad}}</p>
+        <p>fecha de nacimiento: {{cineastaSelec.fechaNac}}</p>
+        <p>lugar de nacimiento: {{cineastaSelec.lugarNac}}</p>
+        <p>residencia: {{cineastaSelec.residencia}}</p>
+        <p>educacion: {{cineastaSelec.educacion}}</p>
+        <p>años activo: {{cineastaSelec.anosActivo}}</p>
+        <p>peliculas realizadas: {{cineastaSelec.cantMultimedia}}</p>
+        <p>trabajos destacados: {{cineastaSelec.trabajosDestacados}}</p>
+        <p>premios: {{cineastaSelec.premios}}</p>
+        <p>religion: {{cineastaSelec.religion}}</p>
+        <p>curiosidad: {{cineastaSelec.curiosidad}}</p>
+        <p>descripcion: {{cineastaSelec.descripcion}}</p>
+            <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-dialog>
+        

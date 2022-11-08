@@ -5,6 +5,9 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { PeliculasComponent } from './peliculas/peliculas.component';
 import { SeriesComponent } from './series/series.component';
 import { CineastasComponent } from './cineastas/cineastas.component';
+import {CardModule} from 'primeng/card';
+import {DialogModule} from 'primeng/dialog';
+import {CarouselModule} from 'primeng/carousel';
 import { InfoMultimediaComponent } from './info-multimedia/info-multimedia.component';
 
 
@@ -25,7 +28,10 @@ import { InfoMultimediaComponent } from './info-multimedia/info-multimedia.compo
   imports: [
     CommonModule,
     ComponentsModule,
-    PrimengModule
+    PrimengModule,
+    CardModule,
+    DialogModule,
+    CarouselModule
   ]
 })
 export class PagesModule { }
