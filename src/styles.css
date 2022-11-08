@@ -2,3 +2,6 @@
 body{
     background-color: var(--gray-900)
 }
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularFireModule } from '@angular/fire/compat';
 
+
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { ComponentsModule } from './components/components.module';
@@ -14,7 +15,7 @@ import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +25,7 @@ import { environment } from '../environments/environment';
     PrimengModule,
     ComponentsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   exports:[],
   providers: [],
