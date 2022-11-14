@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
           icon:'pi pi-fw pi-user',
           routerLink:'/cineastas'
       },
-           {
+      {
           label: 'Admin', 
           icon: 'pi pi-user-plus',
           //visible:this.adminVisible,
