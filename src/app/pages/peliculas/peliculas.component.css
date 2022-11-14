@@ -4,9 +4,3 @@ h1{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-p-card{
-    opacity: 50%;
-}
-p-card:hover{
-    opacity: 100%;
-}
