@@ -1,9 +1,10 @@
-
 <h1>Accion</h1>
 <app-carousel [miMultimedia]="arregloPeliculas2"></app-carousel>
-<h1>Terror</h1>
-<app-carousel [miMultimedia]="arregloPeliculas2"></app-carousel>
-<h1>Aventura</h1>
-<app-carousel [miMultimedia]="arregloPeliculas2"></app-carousel>
-<h1>Comedia</h1>
-<app-carousel [miMultimedia]="arregloPeliculas2"></app-carousel>
+
+<!-- Habilitar en modo administrador -->
+
+<p-card header="Agregar Titulo" [style]="{width: '360px'}" styleClass="p-card-shadow">
+    <ng-template pTemplate="footer">
+        <button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded"></button>
+    </ng-template>
+</p-card>

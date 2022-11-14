@@ -5,5 +5,16 @@ body{
     background-repeat:no-repeat;
     background-position: center center; 
     background-attachment: fixed;
+
+    /* background-color: var(--gray-900) */
+    background: no-repeat;
+    background-image: url(../src/assets/imagenes/fondo-cine-sillas-opcion6.jpg);
+    background-position:center ;
+    background-size:cover ;
+    height: 100vh;
+    background-attachment: fixed;
+}
+body{
+ 
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }

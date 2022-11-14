@@ -31,10 +31,11 @@ export class NavbarComponent implements OnInit {
           routerLink:'/cineastas'
       },
       {
-          label:'Noticias',
-          icon:'pi pi-fw pi-calendar',
-          routerLink:'/noticias'
-      },
+          label: 'Admin', 
+          icon: 'pi pi-user-plus',
+          //visible:this.adminVisible,
+          routerLink:"admin"
+      }
   ];
 }
     loginForm= new FormGroup({

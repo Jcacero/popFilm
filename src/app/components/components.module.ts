@@ -6,12 +6,14 @@ import { PrimengModule } from '../primeng/primeng.module';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { CarouselComponent } from './crousel/carousel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FiltroComponent } from './filtro/filtro.component';
 
 
 @NgModule({
   declarations: [
     AutocompleteComponent,
-    CarouselComponent
+    CarouselComponent,
+    FiltroComponent
   ],
   imports: [
     CommonModule,
