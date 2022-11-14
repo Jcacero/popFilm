@@ -27,11 +27,13 @@
     margin: 10px;
     background: #979797;
     border: 1px solid #3b82f600;
+    transition: all 0.3s;
 }
 
 .p-button.p-button-info:hover{
-    color: #ffe058;
+    color: #eee8cb;
     margin: 10px;
     background: #55000000;
-    border: 1px solid #ffe058;
+    border: 1px solid #ebe6cf;
+    transform: scale(1.1);
 }
