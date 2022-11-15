@@ -1,7 +1,7 @@
 
-                                        /* NAVBAR */
+                                        /* NAVBAR */              
 
-/* Logo  */
+            /* Logo  */
 .logoNav{
     border-radius: 60%;
     cursor: pointer;
@@ -10,25 +10,57 @@
     transform: scale(1.1);}
 
 
-/* Buscador */
+            /* Buscador */
 .buscador{
     border-radius: 100px;
-    background-color: white !important;}
+    background-color: white !important;
+    margin-right: 6px;}
 @media (max-width: 575px) { 
     .buscador{
         visibility: hidden;}}
+        /* Color de borde */
+    .p-inputtext:enabled:focus{ 
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: 0 0 0 0.1rem #ffe4b2;
+        border-color: #ffcd18;}
+    .p-inputtext:enabled:hover{
+    border-color: #ffa7a7;}
 
 
-/* Items de menu */
+            /* Items de menu */
  ::ng-deep .p-menubar .p-menubar-root-list  {
     color: rgb(252, 252, 252);
     align-items: flex-start;
     font-weight:bold;
     background-color: black;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;}
-::ng-deep.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
-    color: #f8f9fa;}
+    ::ng-deep.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link .p-menuitem-text {
+        color: #f8f9fa;
+        transition: all 0.4s;}
+    /* Color de fondo de items */
+    ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover {
+        background-color: black !important;}
+    /* Color de letras de items */
+    ::ng-deep .p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:not(.p-disabled):hover .p-menuitem-text{
+        color: rgba(255, 240, 200, 0.836);
+        transform: scale(1.04);}
+    /* Color de borde de items al presionar */
+    ::ng-deep.p-menubar .p-menubar-root-list > .p-menuitem > .p-menuitem-link:focus{
+        box-shadow: none;}
+    /* Color de icons */
+    ::ng-deep .pi:before{
+        color: rgb(255, 213, 123);}
 
+            /* Boton iniciar */
+.p-button{
+    transition: all 0.4s;}
+    /* Modificaciones a boton */
+    .p-button:hover{
+        transform: scale(1.08);}
+    .p-button:focus {
+        box-shadow: 0 0 0 2px #ffe4b256, 0 0 0 2px #ffe4b248, 0 1px 1px 0 black;
+        margin-left: 2px;}
 
 /* Fondo de navbar */
 ::ng-deep .p-menubar{

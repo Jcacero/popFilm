@@ -24,6 +24,12 @@
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)}
 
+::ng-deep.p-carousel .p-carousel-content .p-carousel-next:enabled:hover{
+    background-color: rgba(43, 43, 43, 0.466) !important;}
+::ng-deep.p-carousel .p-carousel-content .p-carousel-prev:enabled:hover{
+    background-color: rgba(43, 43, 43, 0.466) !important;}
+
+
 
 /* Boton de + Info */
 .p-button.p-button-info{
