@@ -6,11 +6,16 @@ import {MenubarModule} from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { SharedModule } from 'primeng/api';
-import {FormsModule} from '@angular/forms';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {TabViewModule} from 'primeng/tabview';
 import {CarouselModule} from 'primeng/carousel';
 import {CardModule} from 'primeng/card';
+import {DialogModule} from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {CalendarModule} from 'primeng/calendar';
 
 
 
@@ -26,7 +31,13 @@ import {CardModule} from 'primeng/card';
     FormsModule,
     TabViewModule,
     CarouselModule,
-    CardModule
+    CardModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    DialogModule,
+    DropdownModule,
+    InputTextareaModule,
+    CalendarModule
   ],
   exports:[
     MenubarModule,
@@ -37,7 +48,13 @@ import {CardModule} from 'primeng/card';
     FormsModule,
     TabViewModule,
     CarouselModule,
-    CardModule
+    CardModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    DialogModule,
+    DropdownModule,
+    InputTextareaModule,
+    CalendarModule
   ]
 })
 export class PrimengModule { }

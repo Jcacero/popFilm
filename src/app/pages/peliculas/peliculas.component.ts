@@ -11,7 +11,27 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class PeliculasComponent implements OnInit {
 
 
-  constructor(private servicioMultimedia:MultimediaService) { }
+  tipos: any[];
+  tipoSeleccionado: string;
+  generos: any[];
+  generoSeleccionado: string;
+  value10: any;
+
+  constructor(private servicioMultimedia:MultimediaService) {
+    this.tipos = [
+      {name: 'Pelicula'},
+      {name: 'Serie'},
+    ];
+
+    this.generos = [
+      {name: 'Terro'},
+      {name: 'Comedia'},
+      {name: 'Romance'},
+      {name: 'Accion'},
+      {name: 'Aventura'},
+      {name: 'Ciencia Ficcion'},
+    ];
+   }
 
   ngOnInit(): void {
       this.servicioMultimedia.obtenerMultimedia().subscribe(multimedia=>
@@ -25,6 +45,8 @@ export class PeliculasComponent implements OnInit {
   eliminarVisible:boolean=false;
   imagen:string;
   nombreImagen:string;
+
+  
   
   multimedia=new FormGroup({
     titulo:new FormControl('',Validators.required),
@@ -32,8 +54,6 @@ export class PeliculasComponent implements OnInit {
     descripcion:new FormControl('',Validators.required),
     genero:new FormControl('',Validators.required),
     ano:new FormControl('',Validators.required),
-    imagenMultimedia:new FormControl('',Validators.required),
-    id_multimedia:new FormControl('',Validators.required),
     pais:new FormControl('',Validators.required),
     duracion:new FormControl('',Validators.required),
     productora:new FormControl('',Validators.required),
@@ -42,6 +62,7 @@ export class PeliculasComponent implements OnInit {
     direccion:new FormControl('',Validators.required),
     musica:new FormControl('',Validators.required)
   })
+  
   modalVisible:boolean=false;
 
   agregarMultimedia(){
