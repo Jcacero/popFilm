@@ -10,6 +10,10 @@ import {FormsModule} from '@angular/forms';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {TabViewModule} from 'primeng/tabview';
 import {CarouselModule} from 'primeng/carousel';
+import {CardModule} from 'primeng/card';
+
+
+
 @NgModule({
   declarations: [],
   imports: [
@@ -21,8 +25,8 @@ import {CarouselModule} from 'primeng/carousel';
     AutoCompleteModule,
     FormsModule,
     TabViewModule,
-    CarouselModule
-
+    CarouselModule,
+    CardModule
   ],
   exports:[
     MenubarModule,
@@ -32,7 +36,8 @@ import {CarouselModule} from 'primeng/carousel';
     AutoCompleteModule,
     FormsModule,
     TabViewModule,
-    CarouselModule
+    CarouselModule,
+    CardModule
   ]
 })
 export class PrimengModule { }

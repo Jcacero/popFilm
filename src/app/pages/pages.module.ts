@@ -9,6 +9,7 @@ import {CardModule} from 'primeng/card';
 import {DialogModule} from 'primeng/dialog';
 import {CarouselModule} from 'primeng/carousel';
 import { InfoMultimediaComponent } from './info-multimedia/info-multimedia.component';
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
 
 
 @NgModule({
@@ -16,14 +17,16 @@ import { InfoMultimediaComponent } from './info-multimedia/info-multimedia.compo
     SeriesComponent, 
     CineastasComponent,
     PeliculasComponent,
-    InfoMultimediaComponent],
+    InfoMultimediaComponent,
+    IniciarSesionComponent],
   exports:[
     ComponentsModule,
     PrimengModule,
     SeriesComponent, 
     CineastasComponent,
     PeliculasComponent,
-    InfoMultimediaComponent
+    InfoMultimediaComponent,
+    IniciarSesionComponent
   ],
   imports: [
     CommonModule,
