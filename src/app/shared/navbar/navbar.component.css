@@ -67,3 +67,14 @@
     border:transparent !important;
     background-color: black !important;}
 
+/* Color a boton hamburguesa */
+ @media screen and (max-width: 960px) 
+ {::ng-deep.p-menubar .p-menubar-button:hover {
+    color: #6c757d;
+    background: #a590628c;}}
+    @media screen and (max-width: 960px)
+    {::ng-deep.p-menubar .p-menubar-button:focus {
+        outline: 0 none;
+        outline-offset: 0;
+        box-shadow: 0 0 0 0.1rem #ffe4b2;
+        border-color: #fad75b3f;}}

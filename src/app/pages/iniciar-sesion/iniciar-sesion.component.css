@@ -1,4 +1,4 @@
-div{
+/* div{
     background: no-repeat;
     background-image: url(../../../assets/imagenes/FondoPochoclos1.jpg) !important;
     background-position:center ;
@@ -10,7 +10,7 @@ div{
     height: 100%;
     }
     *{ margin: 0;
-    padding: 0;}
+    padding: 0;} */
 form{
     width:350px;
     height:550px;
@@ -28,16 +28,34 @@ h1{
     border-bottom:1px solid #ffce46;}
 
 input{
+    max-width: 490px;
+    position: relative;
     width:100%;
     padding:10px;
     box-sizing:border-box;
-    outline:none;
-    resize:none;
     margin: 1px;
     background: rgba(0, 0, 0, 0.829);
     border-color: #ffce462c;
 }
-    
+
+
+label{
+    font-size: 90%;
+    left: 0;
+    padding: 0.1em;
+    margin-left: 1em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: #ffd59ecc;
+}
+
+.inputGroup :is(input:focus, input:valid)~label {
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    margin-left: 1.3em;
+    padding: 0;
+    border-radius: 2px;
+  }
 .pInputText{
     margin-left: 2px;
     margin-top: 5px;
@@ -45,7 +63,7 @@ input{
 }
 .p-inputtext:enabled:focus{
     box-shadow: 0 0 0 0.1rem #ffd078;
-    border-color: #ffd59e;
+    border-bottom-color: #ffd59e;
 }
 .p-inputtext:enabled:hover {
     border-color: #ffd27e;

@@ -10,19 +10,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./iniciar-sesion.component.css']
 })
 export class IniciarSesionComponent implements OnInit {
-  public path: any = []
-  constructor(private activate: ActivatedRoute) {
-    this.activate.url.subscribe(data=>{
-      this.path = data[0].path
-    });
-    this.getImage();
-   }
-   getImage(){
-    switch(this.path){
-      case 'login':
-        return'../../../assets/imagenes/FondoPochoclos1.jpg';
-    }
-   }
+  constructor() {
+  }
   ngOnInit(): void {
   }
 
@@ -32,3 +21,4 @@ export class IniciarSesionComponent implements OnInit {
    })
    
 }
+

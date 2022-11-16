@@ -4,11 +4,13 @@ footer{
     position:absolute;
     background: rgba(39, 1, 1, 0.932);
     height:fit-content;
-    width: 99vw;
+    width: 100vw;
     left: 0px;
     padding-top: 20px;
     margin-top: 50px;
     color: rgb(255, 255, 255);}
+
+  
   /* Logo */
   .footer-content{
     display: flex;
