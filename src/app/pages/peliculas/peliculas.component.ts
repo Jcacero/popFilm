@@ -85,7 +85,7 @@ export class PeliculasComponent implements OnInit {
         musica:this.multimedia.value.musica!
     
       }
-      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen)
+      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen,'pelicula')
       .then(
         async res=>{
           this.servicioStorage.obtenerUrlImagen(res).

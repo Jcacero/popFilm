@@ -88,7 +88,7 @@ export class SeriesComponent implements OnInit {
         cantidadCaps:this.serie.value.cantidadCaps!
       }
 
-      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen)
+      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen,'series')
       .then(
         async res=>{
           this.servicioStorage.obtenerUrlImagen(res).
