@@ -19,31 +19,37 @@
                     <img src="{{i.imagenCineasta}}" alt="">
                 </div>
                 <h2>{{i.nombreApodo}}</h2>
+
+                <p><b>Roles:</b>  {{i.rol}}</p>
+                <hr>
+                <p-button (click)="showModalDialog(i)" label="Mas Información"></p-button>
+
                 <p>{{i.rol}}</p>
                 <hr>
                 <p-button (click)="showModalDialog(i)" label="+info"></p-button>
+
 
             </div>
             <p>comentario</p>
         </div>
         <!-- FUNCION QUE LLAMA EL DIALOGO -->
-        <p-dialog class="dialog" header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+        <p-dialog class="dialog" header="Informacion" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
         [draggable]="false" [resizable]="false">
-        <p>nombre completo: {{cineastaSelec.nombreCompleto}}</p>
-        <p>edad: {{cineastaSelec.edad}}</p>
-        <p>fecha de nacimiento: {{cineastaSelec.fechaNac}}</p>
-        <p>lugar de nacimiento: {{cineastaSelec.lugarNac}}</p>
-        <p>residencia: {{cineastaSelec.residencia}}</p>
-        <p>educacion: {{cineastaSelec.educacion}}</p>
-        <p>años activo: {{cineastaSelec.anosActivo}}</p>
-        <p>peliculas realizadas: {{cineastaSelec.cantMultimedia}}</p>
-        <p>trabajos destacados: {{cineastaSelec.trabajosDestacados}}</p>
-        <p>premios: {{cineastaSelec.premios}}</p>
-        <p>religion: {{cineastaSelec.religion}}</p>
-        <p>curiosidad: {{cineastaSelec.curiosidad}}</p>
-        <p>descripcion: {{cineastaSelec.descripcion}}</p>
+        <p><b>Nombre completo:</b> {{cineastaSelec.nombreCompleto}}</p>
+        <p><b>Edad: </b>{{cineastaSelec.edad}}</p>
+        <p><b>Fecha de nacimiento:</b> {{cineastaSelec.fechaNac}}</p>
+        <p><b>Lugar de nacimiento:</b> {{cineastaSelec.lugarNac}}</p>
+        <p><b>Residencia: </b>{{cineastaSelec.residencia}}</p>
+        <p><b>Educacion: </b>{{cineastaSelec.educacion}}</p>
+        <p><b>Años activo:</b> {{cineastaSelec.anosActivo}}</p>
+        <p><b>Peliculas realizadas:</b> {{cineastaSelec.cantMultimedia}}</p>
+        <p><b>Trabajos destacados:</b> {{cineastaSelec.trabajosDestacados}}</p>
+        <p><b>Premios: </b>{{cineastaSelec.premios}}</p>
+        <p><b>Religion:</b> {{cineastaSelec.religion}}</p>
+        <p><b>Curiosidad:</b> {{cineastaSelec.curiosidad}}</p>
+        <p><b>Descripcion: </b>{{cineastaSelec.descripcion}}</p>
             <ng-template pTemplate="footer">
-            <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+            <p-button icon="pi pi-check" (click)="displayModal=false" styleClass="p-button-text"></p-button>
             </ng-template>
         </p-dialog>
         

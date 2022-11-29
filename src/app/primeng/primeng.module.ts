@@ -11,6 +11,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import {TabViewModule} from 'primeng/tabview';
 import {CarouselModule} from 'primeng/carousel';
 import {CardModule} from 'primeng/card';
+import { ChipModule } from 'primeng/chip';
 
 
 
@@ -26,7 +27,8 @@ import {CardModule} from 'primeng/card';
     FormsModule,
     TabViewModule,
     CarouselModule,
-    CardModule
+    CardModule,
+    ChipModule
   ],
   exports:[
     MenubarModule,
@@ -37,7 +39,8 @@ import {CardModule} from 'primeng/card';
     FormsModule,
     TabViewModule,
     CarouselModule,
-    CardModule
+    CardModule,
+    ChipModule
   ]
 })
 export class PrimengModule { }
