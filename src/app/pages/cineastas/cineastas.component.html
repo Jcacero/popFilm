@@ -19,12 +19,18 @@
                     <img src="{{i.imagenCineasta}}" alt="">
                 </div>
                 <h2>{{i.nombreApodo}}</h2>
+
                 <p><b>Roles:</b>  {{i.rol}}</p>
                 <hr>
                 <p-button (click)="showModalDialog(i)" label="Mas Información"></p-button>
 
-            </div>
+                <p>{{i.rol}}</p>
+                <hr>
+                <p-button (click)="showModalDialog(i)" label="+info"></p-button>
 
+
+            </div>
+            <p>comentario</p>
         </div>
         <!-- FUNCION QUE LLAMA EL DIALOGO -->
         <p-dialog class="dialog" header="Informacion" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
