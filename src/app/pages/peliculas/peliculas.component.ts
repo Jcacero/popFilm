@@ -88,15 +88,15 @@ export class PeliculasComponent implements OnInit {
   }
 
   mostrarDialogo(){
-    this.textoBoton="Agregar Libro"
+    this.textoBoton="Agregar Pelicula"
     this.modalVisible=true;
   }
 
   cargarDatos(){
-    if(this.textoBoton==="Agregar Libro"){
+    if(this.textoBoton==="Agregar Pelicula"){
       this.agregarMultimedia()
     }
-    else if (this.textoBoton==="Editar Libro"){
+    else if (this.textoBoton==="Editar Pelicula"){
       
     }
     this.modalVisible = false;
