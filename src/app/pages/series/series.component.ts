@@ -26,7 +26,7 @@ export class SeriesComponent implements OnInit {
       ];
   
       this.generos = [
-        {name: 'Terro'},
+        {name: 'Terror'},
         {name: 'Comedia'},
         {name: 'Romance'},
         {name: 'Accion'},
