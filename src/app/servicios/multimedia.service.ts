@@ -32,5 +32,32 @@ export class MultimediaService {
     return this.db.collection('multimedia').doc(id_multimedia).update(nuevaData)
   }
 
+  crearMultimedia(nuevaMultimedia:MultimediaModel, url:string){
+    return new Promise(async (resolve,reject)=>{
+      try{
+        const id = this.db.createId();
+        nuevaMultimedia.id_multimedia = id ;
+        nuevaMultimedia.imagenMultimedia=url
+        const resultado= await this.multimediaCollection.doc(id).set(nuevaMultimedia);
+        resolve(resultado);
+      }
+      catch(error){
+        reject(error);
+      }
+    })
+  }
+
+  eliminarLibro(id_multimedia:string){
+    return new Promise((resolve, reject) => {
+      try{
+          const resp= this.multimediaCollection.doc(id_multimedia).delete()
+          resolve(resolve)
+      }
+      catch(error){ 
+        reject(error)
+      }
+    })
+  }
+
   
 }

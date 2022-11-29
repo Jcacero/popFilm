@@ -34,6 +34,21 @@ export class SeriesService {
     return this.db.collection('series').doc(id_serie).update(nuevaData)
   }
 
+  crearSerie(nuevaSerie:Series, url:string){
+    return new Promise(async (resolve,reject)=>{
+      try{
+        const id = this.db.createId();
+        nuevaSerie.id_serie = id ;
+        nuevaSerie.imagenMultimedia=url
+        const resultado= await this.seriesCollection.doc(id).set(nuevaSerie);
+        resolve(resultado);
+      }
+      catch(error){
+        reject(error);
+      }
+    })
+  }
+
 
 
 
