@@ -4,15 +4,14 @@ import {getDownloadURL, getStorage, ref,UploadResult, uploadString} from 'fireba
   providedIn: 'root'
 })
 export class StorageService {
-
   private respuesta: UploadResult
   private storage = getStorage()
 
   constructor() { }
 
-  async subirImagen(nombre:string,imagen:any){
+  async subirImagen(nombre:string,imagen:any,carpeta:string){
     try{
-      let referenciaImagen = ref(this.storage,'peliculas/'+nombre)/* guardo la referencia de la imagen en el storage */
+      let referenciaImagen = ref(this.storage,carpeta+'/'+nombre)/* guardo la referencia de la imagen en el storage */
       this.respuesta = await uploadString(referenciaImagen,imagen,'data_url') /* se actualiza la imagen del storage */
       .then(resp=>{
         return resp

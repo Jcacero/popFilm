@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {CalendarModule} from 'primeng/calendar';
+import { ChipModule } from 'primeng/chip';
 
 
 
@@ -37,7 +38,8 @@ import {CalendarModule} from 'primeng/calendar';
     DialogModule,
     DropdownModule,
     InputTextareaModule,
-    CalendarModule
+    CalendarModule,
+    ChipModule
   ],
   exports:[
     MenubarModule,
@@ -54,7 +56,8 @@ import {CalendarModule} from 'primeng/calendar';
     DialogModule,
     DropdownModule,
     InputTextareaModule,
-    CalendarModule
+    CalendarModule,
+    ChipModule
   ]
 })
 export class PrimengModule { }
