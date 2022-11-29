@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Series } from 'src/app/models/series';
 import { SeriesService } from 'src/app/servicios/series.service';
+import { StorageService } from 'src/app/servicios/storage.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-series',
@@ -17,7 +18,7 @@ export class SeriesComponent implements OnInit {
 
   arregloSeries:Series [];
 
-  constructor(private servicioSeries:SeriesService) { 
+  constructor(private servicioSeries:SeriesService,private servicioStorage: StorageService) { 
 
       this.tipos = [
         {name: 'Pelicula'},
@@ -86,6 +87,24 @@ export class SeriesComponent implements OnInit {
         numeroTemporadas:this.serie.value.numeroTemporadas!,
         cantidadCaps:this.serie.value.cantidadCaps!
       }
+
+      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen)
+      .then(
+        async res=>{
+          this.servicioStorage.obtenerUrlImagen(res).
+          then(
+            async url=>{
+              await this.servicioSeries.crearSerie(nuevaSerie,url).then((serie)=>{
+                alert("La Serie fue agregada con éxito");
+              })
+              .catch((error)=>{
+                alert("la Serie no pudo ser cargada\n Error:"+error);
+              })
+            }
+          )
+        }
+      )
+
     }
   }
 
@@ -103,5 +122,20 @@ export class SeriesComponent implements OnInit {
     }
     this.modalVisible = false;
     this.serie.reset();
+  }
+
+  cargarImagen(event:any){
+    let archivo=event.target.files[0];
+    let  reader=new FileReader();
+    if(archivo!=undefined){
+      reader.readAsDataURL(archivo)
+      reader.onloadend = () =>{
+        let url = reader.result
+        if(url!=null){
+          this.nombreImagen = archivo.name
+          this.imagen=url.toString()
+        }
+      }
+    }
   }
 }
