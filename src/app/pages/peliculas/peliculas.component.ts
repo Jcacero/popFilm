@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MultimediaModel } from 'src/app/models/multimediaModel';
 import { MultimediaService } from 'src/app/servicios/multimedia.service';
+import { StorageService } from 'src/app/servicios/storage.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +18,7 @@ export class PeliculasComponent implements OnInit {
   generoSeleccionado: string;
   value10: any;
 
-  constructor(private servicioMultimedia:MultimediaService) {
+  constructor(private servicioMultimedia:MultimediaService, private servicioStorage: StorageService) {
     this.tipos = [
       {name: 'Pelicula'},
       {name: 'Serie'},
@@ -84,7 +85,25 @@ export class PeliculasComponent implements OnInit {
         musica:this.multimedia.value.musica!
     
       }
+      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen)
+      .then(
+        async res=>{
+          this.servicioStorage.obtenerUrlImagen(res).
+          then(
+            async url=>{
+              await this.servicioMultimedia.crearMultimedia(nuevaMultimedia,url).then((multimedia)=>{
+                alert("La pelicula fue agregada con éxito");
+              })
+              .catch((error)=>{
+                alert("la pelicula no pudo ser cargada\n Error:"+error);
+              })
+            }
+          )
+        }
+      )
     }
+
+
   }
 
   mostrarDialogo(){
@@ -101,5 +120,20 @@ export class PeliculasComponent implements OnInit {
     }
     this.modalVisible = false;
     this.multimedia.reset();
+  }
+
+  cargarImagen(event:any){
+    let archivo=event.target.files[0];
+    let  reader=new FileReader();
+    if(archivo!=undefined){
+      reader.readAsDataURL(archivo)
+      reader.onloadend = () =>{
+        let url = reader.result
+        if(url!=null){
+          this.nombreImagen = archivo.name
+          this.imagen=url.toString()
+        }
+      }
+    }
   }
 }

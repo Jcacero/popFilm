@@ -65,6 +65,9 @@
         <label for="float-input">Director Musical</label>
     </span>
 
+    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
+
 
     <p-button class="p-button-success" label="{{textoBoton}}" (click)="cargarDatos()" ></p-button>
 </form>
