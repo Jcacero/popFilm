@@ -1,19 +1,12 @@
-/* div{
+/* ::ng-deep body{
     background: no-repeat;
     background-image: url(../../../assets/imagenes/FondoPochoclos1.jpg) !important;
     background-position:center ;
     background-size:cover;
-    background-attachment: fixed;
-
-
-    width: 100%;
-    height: 100%;
-    }
-    *{ margin: 0;
-    padding: 0;} */
+    background-attachment: fixed;} */
 form{
     width:350px;
-    height:550px;
+    height:380px;
     border-radius:15px;
     box-shadow:0 0 40px -10px #000;
     margin:calc(50vh - 220px) auto;padding:20px 30px;
@@ -54,7 +47,7 @@ label{
     margin: 0em;
     margin-left: 1.3em;
     padding: 0;
-    border-radius: 2px;
+    border-radius: 15px;
   }
 .pInputText{
     margin-left: 2px;
@@ -68,3 +61,21 @@ label{
 .p-inputtext:enabled:hover {
     border-color: #ffd27e;
 }
+
+button{
+        height: 50px; 
+        padding-left: 5px;
+        padding-right: 5px;   
+        margin-bottom: 10px; 
+        margin-top: 10px;   
+        background-color: #ffd27eb6; 
+        border-color: #4e000000; 
+        border-style: solid; 
+        border-radius: 100px;  
+        width: 100px;   
+        cursor: pointer;
+        position: relative;
+        left: 180px;
+      }
+      button p{
+        color: rgb(17, 17, 17);}

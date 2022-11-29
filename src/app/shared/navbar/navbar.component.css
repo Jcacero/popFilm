@@ -61,6 +61,13 @@
     .p-button:focus {
         box-shadow: 0 0 0 2px #ffe4b256, 0 0 0 2px #ffe4b248, 0 1px 1px 0 black;
         margin-left: 2px;}
+        @media (max-width: 200px) {
+            .p-button{
+                float: left;
+                margin-left: 0;
+                margin-right: 23px !important;
+            }}
+
 
 /* Fondo de navbar */
 ::ng-deep .p-menubar{
