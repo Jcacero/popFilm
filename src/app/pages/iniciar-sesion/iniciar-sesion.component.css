@@ -77,5 +77,15 @@ button{
         position: relative;
         left: 180px;
       }
-      button p{
-        color: rgb(17, 17, 17);}
+.p-button{
+    background-color: #ffd27eb6; 
+    color: #ffffff;
+    border-radius: 50px;
+    position: relative;
+    left: 180px;
+
+}
+.p-button:hover{
+    background-color: #ffd27e9f;
+    border-color: #ffffff;
+}
