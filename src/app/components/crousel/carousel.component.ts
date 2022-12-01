@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -9,6 +9,7 @@ export class CarouselComponent implements OnInit {
 
 	responsiveOptions;
   @Input() miMultimedia:any[]
+  @Output () borrar = new EventEmitter<string>()
   servicioMultimedia: any;
 
   constructor() { 
@@ -32,5 +33,10 @@ export class CarouselComponent implements OnInit {
   }
   ngOnInit(): void {
 
+  }
+
+  borrarContenido(id:string){
+    console.log(id)
+    this.borrar.emit(id)
   }
 }

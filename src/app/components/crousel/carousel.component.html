@@ -11,6 +11,12 @@
                         <p class="p-mt-0 p-mb-3">{{i.genero}}</p>
                         <div class="car-buttons mt-3">
                             <button pButton pRipple type="button" routerLink='../info-multimedia/{{i.id_multimedia}}' label="Más Información" class="p-button-raised p-button-info"></button>
+                            
+                            <!-- Botones editar y eliminar habilitados para el admin -->
+                            <div style="margin-top: 10px;">
+                                <button pButton pRipple type="button" (click)="borrarContenido(i.id_multimedia)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -18,3 +24,4 @@
         </ng-template>
     </p-carousel>
 </div> 
+

@@ -36,11 +36,11 @@ export class PeliculasComponent implements OnInit {
 
   ngOnInit(): void {
       this.servicioMultimedia.obtenerMultimedia().subscribe(multimedia=>
-        this.arregloPeliculas2=multimedia)
+        this.arregloPeliculas=multimedia)
   }
 
 
-  arregloPeliculas2: MultimediaModel []
+  arregloPeliculas: MultimediaModel []
   textoBoton:string;
   MultimediaSeleccionada:MultimediaModel;
   eliminarVisible:boolean=false;
@@ -135,5 +135,15 @@ export class PeliculasComponent implements OnInit {
         }
       }
     }
+  }
+
+  borrarPelicula(id:string){
+    this.servicioMultimedia.eliminarMultimedia(id).then((resp)=>{
+      alert("La pelicula fue eliminado con éxito")
+    })
+    .catch((error)=>{
+      alert("La pelicula no pudo ser eliminado \n Error:"+error)
+    })
+    this.eliminarVisible = false
   }
 }
