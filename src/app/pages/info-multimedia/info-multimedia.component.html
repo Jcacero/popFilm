@@ -1,8 +1,32 @@
-<p>info-multimedia works!</p>
-<h1 style="color: white;">{{multimediaSeleccionada.titulo}}</h1>
+<h1>{{multimediaSeleccionada.titulo}}</h1>
 
-<img src="{{multimediaSeleccionada.imagenMultimedia}}" style="width: 50%;" alt="{{multimediaSeleccionada.titulo}}">
-
-<p>{{multimediaSeleccionada.guion}}</p>
-<p>{{multimediaSeleccionada.pais}}</p>
-<p>{{multimediaSeleccionada.duracion}}</p>
+<div class="grid">
+    <div class="col-4">
+        <h3 style="color: white;">Tipo</h3>
+        <p>{{multimediaSeleccionada.tipo}}</p>
+        <h3 style="color: white;">Pais</h3>
+        <p>{{multimediaSeleccionada.pais}}</p>
+        <h3 style="color: white;">Descripcion</h3>
+        <p>{{multimediaSeleccionada.descripcion}}</p>
+        <h3 style="color: white;">Genero</h3>
+        <p>{{multimediaSeleccionada.genero}}</p>
+        <h3 style="color: white;">Año</h3>
+        <p>{{multimediaSeleccionada.ano}}</p>
+        <h3 style="color: white;">Duración</h3>
+        <p>{{multimediaSeleccionada.duracion}} Minutos</p>
+    </div>
+    <div class="col-4">
+        <h3 style="color: white;">Productora</h3>
+        <p>{{multimediaSeleccionada.productora}}</p>
+        <h3 style="color: white;">Reparto</h3>
+        <p>{{multimediaSeleccionada.reparto}}</p>
+        <h3 style="color: white;">Guion</h3>
+        <p>{{multimediaSeleccionada.guion}}</p>
+        <h3 style="color: white;">Direccion</h3>
+        <p>{{multimediaSeleccionada.direccion}}</p>
+        <h3 style="color: white;">Musica</h3>
+        <p>{{multimediaSeleccionada.musica}}</p>
+    </div>
+    <div class="col-4"><img src="{{multimediaSeleccionada.imagenMultimedia}}" style="width: 50%;" alt="{{multimediaSeleccionada.titulo}}">
+    </div>
+</div>
