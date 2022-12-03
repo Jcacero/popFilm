@@ -7,7 +7,9 @@ h1{
 button{
     margin: 20px;
 }
-
+::ng-deep.p-button{
+    border-radius: 50px ;
+ }
 form{
     width: 500px;
     height: 500px;

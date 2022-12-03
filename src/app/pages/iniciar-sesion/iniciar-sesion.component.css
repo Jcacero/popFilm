@@ -77,8 +77,7 @@ button{
         position: relative;
         left: 180px;
       }
-.p-button{
-    background-color: #ffd27eb6; 
+::ng-deep.p-button-warning{
     color: #ffffff;
     border-radius: 50px;
     position: relative;
