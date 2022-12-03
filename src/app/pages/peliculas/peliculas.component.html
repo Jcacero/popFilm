@@ -3,8 +3,71 @@
 
 <!-- Habilitar en modo administrador -->
 
-<p-card header="Agregar Titulo" [style]="{width: '360px'}" styleClass="p-card-shadow">
-    <ng-template pTemplate="footer">
-        <button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded"></button>
-    </ng-template>
-</p-card>
+
+
+<!-- Boton para agregar  -->
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" (click)="mostrarDialogo()"></button>
+
+
+<!-- Formulario para agregar multimedia -->
+
+<p-dialog header="{{textoBoton}}" [(visible)]="modalVisible">
+    Ingrese la Informacion de la pelicula
+
+<form [formGroup]="multimedia">
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="titulo">
+        <label for="float-input">Titulo</label>
+    </span>
+    <span class="p-float-label m-4">
+        <p-dropdown [options]="tipos" [(ngModel)]="tipoSeleccionado" formControlName="tipo" optionLabel="name"></p-dropdown>
+        <label for="float-input">Tipo: serie/pelicula</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <textarea pInputTextarea formControlName="descripcion"></textarea>
+        <label for="float-input">Descripción</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <p-dropdown [options]="generos" [(ngModel)]="generoSeleccionado" formControlName="genero" optionLabel="name"></p-dropdown>
+        <label for="float-input">Género</label>
+    </span>
+    
+    <span class="p-float-label m-4" >
+        <p>Año de estreno</p>
+        <p-calendar view="year" formControlName="ano" dateFormat="yy" inputId="yearpicker"></p-calendar>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="pais">
+        <label for="float-input">País</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="number" pInputText formControlName="duracion">
+        <label for="float-input">Duracion en miunutos : (Ej. 123 min)</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="productora">
+        <label for="float-input">Productora</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="reparto">
+        <label for="float-input">Reparto</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="guion">
+        <label for="float-input">Guion</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="direccion">
+        <label for="float-input">Dirección</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="musica">
+        <label for="float-input">Director Musical</label>
+    </span>
+
+    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
+
+
+    <p-button class="p-button-success" label="{{textoBoton}}" (click)="cargarDatos()" ></p-button>
+</form>

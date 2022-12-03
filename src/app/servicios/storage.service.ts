@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {getDownloadURL, getStorage, ref,UploadResult, uploadString} from 'firebase/storage';
-
 @Injectable({
   providedIn: 'root'
 })
