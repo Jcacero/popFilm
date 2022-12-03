@@ -118,7 +118,7 @@ export class SeriesComponent implements OnInit {
       this.agregarSerie()
     }
     else if (this.textoBoton==="Editar Serie"){
-      
+      this.editarSerie()
     }
     this.modalVisible = false;
     this.serie.reset();
@@ -137,5 +137,66 @@ export class SeriesComponent implements OnInit {
         }
       }
     }
+  }
+
+  borrarSerie(id:string){
+    this.servicioSeries.eliminarSerie(id).then((resp)=>{
+      alert("La pelicula fue eliminado con éxito")
+    })
+    .catch((error)=>{
+      alert("La pelicula no pudo ser eliminado \n Error:"+error)
+    })
+  }
+
+  mostrarEditar(serieSeleccionada:Series){
+    this.serieSeleccionada=serieSeleccionada
+    console.log(serieSeleccionada)
+    this.textoBoton="Editar Serie"
+    this.modalVisible=true;
+    this.serie.setValue({
+      titulo:serieSeleccionada.titulo,
+      tipo:serieSeleccionada.tipo,
+      descripcion:serieSeleccionada.descripcion,
+      genero:serieSeleccionada.genero,
+      ano:serieSeleccionada.ano,
+      imagenMultimedia:serieSeleccionada.imagenMultimedia,
+      pais:serieSeleccionada.pais,
+      duracion:serieSeleccionada.duracion,
+      productora:serieSeleccionada.productora,
+      reparto:serieSeleccionada.reparto,
+      guion:serieSeleccionada.guion,
+      direccion:serieSeleccionada.direccion,
+      musica:serieSeleccionada.musica,
+      cantidadCaps:serieSeleccionada.cantidadCaps,
+      numeroTemporadas:serieSeleccionada.numeroTemporadas
+    })
+  }
+
+  editarSerie(){
+    alert("el boton funciona")
+    let datos:Series ={
+      titulo:this.serie.value.titulo!,
+      tipo:this.serie.value.tipo!,
+      descripcion:this.serie.value.editorial!,
+      genero:this.serie.value.genero!,
+      ano:this.serie.value.ano!,
+      imagenMultimedia:this.serie.value.imagenMultimedia!,
+      id_serie:this.serie.value.id_serie!,
+      pais:this.serie.value.pais!,
+      duracion:this.serie.value.duracion!,
+      productora:this.serie.value.productora!,
+      reparto:this.serie.value.reparto!,
+      guion:this.serie.value.guion!,
+      direccion:this.serie.value.direccion!,
+      musica:this.serie.value.musica!,
+      cantidadCaps:this.serie.value.cantidadCaps!,
+      numeroTemporadas:this.serie.value.numeroTemporadas!
+    }
+    this.servicioSeries.modificarSeries(this.serieSeleccionada.id_serie,datos).then(serie=>{
+      alert("La serie fue modificada con exito")
+    })
+    .catch((error)=>{
+      alert("No se pudo modificar la serie \n Error:"+error)
+    })
   }
 }

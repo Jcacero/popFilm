@@ -1,5 +1,5 @@
 <h1>Series</h1>
-<app-carousel [miMultimedia]="arregloSeries"></app-carousel>
+<app-carousel [miMultimedia]="arregloSeries" (borrar)="borrarSerie($event)" (editar)="mostrarEditar($event)"></app-carousel>
 
 <!-- Boton para agregar  -->
 <button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded botonAgregar" (click)="mostrarDialogo()"></button>
@@ -38,7 +38,7 @@
     </span>
     <span class="p-float-label m-4" >
         <input type="number" pInputText formControlName="duracion">
-        <label for="float-input">Duracion en miunutos : (Ej. 123 min)</label>
+        <label for="float-input">Duracion en miunutos : (Ej. 120 min)</label>
     </span>
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="productora">

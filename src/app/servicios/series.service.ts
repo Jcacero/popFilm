@@ -49,6 +49,19 @@ export class SeriesService {
     })
   }
 
+  eliminarSerie(id_serie:string){
+    return new Promise((resolve, reject) => {
+      try{
+          const resp= this.seriesCollection.doc(id_serie).delete()
+          resolve(resolve)
+      }
+      catch(error){ 
+        reject(error)
+      }
+    })
+  }
+
+
 
 
 
