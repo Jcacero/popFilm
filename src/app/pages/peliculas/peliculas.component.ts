@@ -36,14 +36,13 @@ export class PeliculasComponent implements OnInit {
 
   ngOnInit(): void {
       this.servicioMultimedia.obtenerMultimedia().subscribe(multimedia=>
-        this.arregloPeliculas2=multimedia)
+        this.arregloPeliculas=multimedia)
   }
 
 
-  arregloPeliculas2: MultimediaModel []
+  arregloPeliculas: MultimediaModel []
   textoBoton:string;
-  MultimediaSeleccionada:MultimediaModel;
-  eliminarVisible:boolean=false;
+  multimediaSeleccionada:MultimediaModel;
   imagen:string;
   nombreImagen:string;
 
@@ -116,7 +115,7 @@ export class PeliculasComponent implements OnInit {
       this.agregarMultimedia()
     }
     else if (this.textoBoton==="Editar Pelicula"){
-      
+      this.editarMultimedia()
     }
     this.modalVisible = false;
     this.multimedia.reset();
@@ -135,5 +134,61 @@ export class PeliculasComponent implements OnInit {
         }
       }
     }
+  }
+
+  borrarPelicula(id:string){
+    this.servicioMultimedia.eliminarMultimedia(id).then((resp)=>{
+      alert("La pelicula fue eliminado con éxito")
+    })
+    .catch((error)=>{
+      alert("La pelicula no pudo ser eliminado \n Error:"+error)
+    })
+  }
+
+  mostrarEditar(multimediaSeleccionada:MultimediaModel){
+    this.multimediaSeleccionada=multimediaSeleccionada
+    console.log(multimediaSeleccionada)
+    this.textoBoton="Editar Pelicula"
+    this.modalVisible=true;
+    this.multimedia.setValue({
+      titulo:multimediaSeleccionada.titulo,
+      tipo:multimediaSeleccionada.tipo,
+      descripcion:multimediaSeleccionada.descripcion,
+      genero:multimediaSeleccionada.genero,
+      ano:multimediaSeleccionada.ano,
+      imagenMultimedia:multimediaSeleccionada.imagenMultimedia,
+      pais:multimediaSeleccionada.pais,
+      duracion:multimediaSeleccionada.duracion,
+      productora:multimediaSeleccionada.productora,
+      reparto:multimediaSeleccionada.reparto,
+      guion:multimediaSeleccionada.guion,
+      direccion:multimediaSeleccionada.direccion,
+      musica:multimediaSeleccionada.musica
+    })
+  }
+
+  editarMultimedia(){
+    let datos:MultimediaModel ={
+      titulo:this.multimedia.value.titulo!,
+      tipo:this.multimedia.value.tipo!,
+      descripcion:this.multimedia.value.editorial!,
+      genero:this.multimedia.value.genero!,
+      ano:this.multimedia.value.ano!,
+      imagenMultimedia:this.multimedia.value.imagenMultimedia!,
+      id_multimedia:this.multimedia.value.id_multimedia!,
+      pais:this.multimedia.value.pais!,
+      duracion:this.multimedia.value.duracion!,
+      productora:this.multimedia.value.productora!,
+      reparto:this.multimedia.value.reparto!,
+      guion:this.multimedia.value.guion!,
+      direccion:this.multimedia.value.direccion!,
+      musica:this.multimedia.value.musica!
+    }
+    this.servicioMultimedia.modificarMultimedia(this.multimediaSeleccionada.id_multimedia,datos).then(multimedia=>{
+      alert("La pelicula fue modificada con exito")
+    })
+    .catch((error)=>{
+      alert("No se pudo modificar la pelicula \n Error:"+error)
+    })
   }
 }
