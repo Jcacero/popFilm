@@ -168,6 +168,7 @@ export class PeliculasComponent implements OnInit {
   }
 
   editarMultimedia(){
+    alert("el boton funciona")
     let datos:MultimediaModel ={
       titulo:this.multimedia.value.titulo!,
       tipo:this.multimedia.value.tipo!,

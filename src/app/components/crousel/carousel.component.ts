@@ -1,5 +1,4 @@
 import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
-import { MultimediaModel } from 'src/app/models/multimediaModel';
 
 @Component({
   selector: 'app-carousel',

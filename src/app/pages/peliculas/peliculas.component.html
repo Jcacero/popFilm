@@ -1,4 +1,4 @@
-<h1>Accion</h1>
+<h1>Peliculas</h1>
 <app-carousel [miMultimedia]="arregloPeliculas" (borrar)="borrarPelicula($event)" (editar)="mostrarEditar($event)"></app-carousel>
 
 <!-- Habilitar en modo administrador -->
@@ -33,7 +33,7 @@
     
     <span class="p-float-label m-4" >
         <p>Año de estreno</p>
-        <p-calendar view="year"  dateFormat="yy" inputId="yearpicker" formControlName="ano"></p-calendar>
+        <p-calendar view="year"  dateFormat="yy" inputId="yearpicker" ></p-calendar>
     </span>
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="pais">
