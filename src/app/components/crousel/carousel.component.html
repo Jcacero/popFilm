@@ -10,7 +10,7 @@
                         <h3 class="p-mb-1">{{i.titulo}}</h3>
                         <p class="p-mt-0 p-mb-3">{{i.genero.name}}</p>
                         <div class="car-buttons mt-3">
-                            <button pButton pRipple type="button" routerLink='../info-multimedia/{{i.id_multimedia}}' label="Más Información" class="p-button-raised p-button-info"></button>
+                            <button pButton pRipple type="button" routerLink='../info-multimedia/{{i.id_multimedia}}{{i.id_serie}}' label="Más Información" class="p-button-raised p-button-info"></button>
                             
                             <!-- Botones editar y eliminar habilitados para el admin -->
                             <div style="margin-top: 10px;">
@@ -28,9 +28,10 @@
 
 
 <!-- dialogo que se muestra para eliminar -->
-<p-dialog header="¡¡¡ADVERTENCIAA!!" [(visible)]="eliminarVisible">
+<p-dialog header="¡Atención!" [(visible)]="eliminarVisible">
     <h4>¿Desea eliminar este contenido?</h4>
-    <button pButton pRipple type="button" (click)="borrarContenido(multimediaSeleccionada.id_multimedia)" icon="pi pi-check" class="p-button-rounded p-button-success p-button-outlined"></button>
+    <button pButton pRipple type="button" *ngIf="tipoMultiSelec=='Serie'" (click)="borrarContenido(multimediaSeleccionada.id_serie)" icon="pi pi-check" class="p-button-rounded p-button-success p-button-outlined"></button>
+    <button pButton pRipple type="button" *ngIf="tipoMultiSelec=='Pelicula'"(click)="borrarContenido(multimediaSeleccionada.id_multimedia)" icon="pi pi-check" class="p-button-rounded p-button-success p-button-outlined"></button>
     <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-rounded p-button-danger p-button-outlined"></button>
 </p-dialog>
 

@@ -29,9 +29,10 @@
     </span>
     
     <span class="p-float-label m-4" >
-        <p>Año de estreno</p>
-        <p-calendar view="year" formControlName="ano" dateFormat="yy" inputId="yearpicker"></p-calendar>
+        <input type="number" pInputText formControlName="ano">
+        <label for="float-input">Año de estreno</label>
     </span>
+
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="pais">
         <label for="float-input">País</label>

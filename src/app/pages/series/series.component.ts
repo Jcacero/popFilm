@@ -75,17 +75,17 @@ export class SeriesComponent implements OnInit {
         descripcion:this.serie.value.descripcion!,
         genero:this.serie.value.genero!,
         ano:this.serie.value.ano!,
-        imagenMultimedia:"",
-        id_serie:"",
         pais:this.serie.value.pais!,
-        duracion:this.serie.value.duracion!,
+        duracion:this.serie.value.duracion,
         productora:this.serie.value.productora!,
         reparto:this.serie.value.reparto!,
         guion:this.serie.value.guion!,
         direccion:this.serie.value.direccion!,
         musica:this.serie.value.musica!,
-        numeroTemporadas:this.serie.value.numeroTemporadas!,
-        cantidadCaps:this.serie.value.cantidadCaps!
+        cantidadCaps:this.serie.value.cantidadCaps,
+        numeroTemporadas:this.serie.value.numeroTemporadas,
+        imagenMultimedia:"",
+        id_serie:""
       }
 
       this.servicioStorage.subirImagen(this.nombreImagen,this.imagen,'series')
@@ -118,7 +118,7 @@ export class SeriesComponent implements OnInit {
       this.agregarSerie()
     }
     else if (this.textoBoton==="Editar Serie"){
-      this.editarSerie()
+     this.editarSerie()
     }
     this.modalVisible = false;
     this.serie.reset();
@@ -141,16 +141,15 @@ export class SeriesComponent implements OnInit {
 
   borrarSerie(id:string){
     this.servicioSeries.eliminarSerie(id).then((resp)=>{
-      alert("La pelicula fue eliminado con éxito")
+      alert("La serie fue eliminada con éxito")
     })
     .catch((error)=>{
-      alert("La pelicula no pudo ser eliminado \n Error:"+error)
+      alert("La serie no pudo ser eliminada \n Error:"+error)
     })
   }
 
   mostrarEditar(serieSeleccionada:Series){
     this.serieSeleccionada=serieSeleccionada
-    console.log(serieSeleccionada)
     this.textoBoton="Editar Serie"
     this.modalVisible=true;
     this.serie.setValue({
@@ -173,7 +172,6 @@ export class SeriesComponent implements OnInit {
   }
 
   editarSerie(){
-    alert("el boton funciona")
     let datos:Series ={
       titulo:this.serie.value.titulo!,
       tipo:this.serie.value.tipo!,
@@ -192,8 +190,8 @@ export class SeriesComponent implements OnInit {
       cantidadCaps:this.serie.value.cantidadCaps!,
       numeroTemporadas:this.serie.value.numeroTemporadas!
     }
-    this.servicioSeries.modificarSeries(this.serieSeleccionada.id_serie,datos).then(serie=>{
-      alert("La serie fue modificada con exito")
+    this.servicioSeries.modificarSerie(this.serieSeleccionada.id_serie,datos).then(s=>{
+      alert("La serie fue modificada con éxito")
     })
     .catch((error)=>{
       alert("No se pudo modificar la serie \n Error:"+error)

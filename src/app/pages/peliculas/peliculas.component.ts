@@ -64,7 +64,7 @@ export class PeliculasComponent implements OnInit {
   })
   
   modalVisible:boolean=false;
-
+  
   agregarMultimedia(){
     if(this.multimedia.valid){
       let nuevaMultimedia:MultimediaModel ={
@@ -73,18 +73,18 @@ export class PeliculasComponent implements OnInit {
         descripcion:this.multimedia.value.descripcion!,
         genero:this.multimedia.value.genero!,
         ano:this.multimedia.value.ano!,
-        imagenMultimedia:"",
-        id_multimedia:"",
         pais:this.multimedia.value.pais!,
-        duracion:this.multimedia.value.duracion!,
+        duracion:this.multimedia.value.duracion,
         productora:this.multimedia.value.productora!,
         reparto:this.multimedia.value.reparto!,
         guion:this.multimedia.value.guion!,
         direccion:this.multimedia.value.direccion!,
-        musica:this.multimedia.value.musica!
-    
+        musica:this.multimedia.value.musica!,
+        imagenMultimedia:"",
+        id_multimedia:""
       }
-      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen,'pelicula')
+
+      this.servicioStorage.subirImagen(this.nombreImagen,this.imagen,"pelicula")
       .then(
         async res=>{
           this.servicioStorage.obtenerUrlImagen(res).
@@ -94,16 +94,18 @@ export class PeliculasComponent implements OnInit {
                 alert("La pelicula fue agregada con éxito");
               })
               .catch((error)=>{
-                alert("la pelicula no pudo ser cargada\n Error:"+error);
+                alert("La pelicula no pudo ser cargado\n Error:"+error);
               })
             }
           )
         }
       )
     }
-
-
+    else{
+      alert("El formulario no está comlpeto")
+    }
   }
+  
 
   mostrarDialogo(){
     this.textoBoton="Agregar Pelicula"
@@ -138,16 +140,15 @@ export class PeliculasComponent implements OnInit {
 
   borrarPelicula(id:string){
     this.servicioMultimedia.eliminarMultimedia(id).then((resp)=>{
-      alert("La pelicula fue eliminado con éxito")
+      alert("La pelicula fue eliminada con éxito")
     })
     .catch((error)=>{
-      alert("La pelicula no pudo ser eliminado \n Error:"+error)
+      alert("La pelicula no pudo ser eliminada \n Error:"+error)
     })
   }
 
   mostrarEditar(multimediaSeleccionada:MultimediaModel){
     this.multimediaSeleccionada=multimediaSeleccionada
-    console.log(multimediaSeleccionada)
     this.textoBoton="Editar Pelicula"
     this.modalVisible=true;
     this.multimedia.setValue({
@@ -156,40 +157,39 @@ export class PeliculasComponent implements OnInit {
       descripcion:multimediaSeleccionada.descripcion,
       genero:multimediaSeleccionada.genero,
       ano:multimediaSeleccionada.ano,
-      imagenMultimedia:multimediaSeleccionada.imagenMultimedia,
       pais:multimediaSeleccionada.pais,
-      duracion:multimediaSeleccionada.duracion,
       productora:multimediaSeleccionada.productora,
       reparto:multimediaSeleccionada.reparto,
+      duracion:multimediaSeleccionada.duracion,
       guion:multimediaSeleccionada.guion,
       direccion:multimediaSeleccionada.direccion,
-      musica:multimediaSeleccionada.musica
+      musica:multimediaSeleccionada.musica,
+      imagenMultimedia:multimediaSeleccionada.imagenMultimedia
     })
   }
 
   editarMultimedia(){
-    alert("el boton funciona")
     let datos:MultimediaModel ={
       titulo:this.multimedia.value.titulo!,
       tipo:this.multimedia.value.tipo!,
-      descripcion:this.multimedia.value.editorial!,
+      descripcion:this.multimedia.value.descripcion!,
       genero:this.multimedia.value.genero!,
-      ano:this.multimedia.value.ano!,
-      imagenMultimedia:this.multimedia.value.imagenMultimedia!,
-      id_multimedia:this.multimedia.value.id_multimedia!,
+      ano:this.multimedia.value.ano,
+      imagenMultimedia:this.multimedia.value.imagenMultimedia,
+      id_multimedia:this.multimediaSeleccionada.id_multimedia,
       pais:this.multimedia.value.pais!,
-      duracion:this.multimedia.value.duracion!,
+      duracion:this.multimedia.value.duracion,
       productora:this.multimedia.value.productora!,
       reparto:this.multimedia.value.reparto!,
       guion:this.multimedia.value.guion!,
       direccion:this.multimedia.value.direccion!,
-      musica:this.multimedia.value.musica!
+      musica:this.multimedia.value.musica!,
     }
     this.servicioMultimedia.modificarMultimedia(this.multimediaSeleccionada.id_multimedia,datos).then(multimedia=>{
       alert("La pelicula fue modificada con exito")
     })
     .catch((error)=>{
-      alert("No se pudo modificar la pelicula \n Error:"+error)
+      alert("La pelicula no pudo ser modificada \n Error:"+error)
     })
   }
 }

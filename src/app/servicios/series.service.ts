@@ -30,15 +30,11 @@ export class SeriesService {
 
   }
 
-  modificarSeries(id_serie:string,nuevaData:Series){
-    return this.db.collection('series').doc(id_serie).update(nuevaData)
-  }
-
   crearSerie(nuevaSerie:Series, url:string){
     return new Promise(async (resolve,reject)=>{
       try{
         const id = this.db.createId();
-        nuevaSerie.id_serie = id ;
+        nuevaSerie.id_serie= id ;
         nuevaSerie.imagenMultimedia=url
         const resultado= await this.seriesCollection.doc(id).set(nuevaSerie);
         resolve(resultado);
@@ -47,6 +43,10 @@ export class SeriesService {
         reject(error);
       }
     })
+  }
+  
+  modificarSerie(id_serie:string,nuevaData:Series){
+    return this.db.collection('series').doc(id_serie).update(nuevaData)
   }
 
   eliminarSerie(id_serie:string){

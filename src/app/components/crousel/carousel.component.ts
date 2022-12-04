@@ -43,10 +43,21 @@ export class CarouselComponent implements OnInit {
   /* dialog para editar */
   modalVisible:boolean=false;
 
+  /* tipo de multimedia seleccionada */
+  tipoMultiSelec:string;
 
   mostrarEliminar(multimediaSeleccionada:any){
     this.multimediaSeleccionada = multimediaSeleccionada
+    this.identificador(multimediaSeleccionada)
     this.eliminarVisible = true;
+  }
+
+  identificador(multimediaSeleccionada:any){
+    if(multimediaSeleccionada.tipo.name=="Pelicula"){
+      this.tipoMultiSelec="Pelicula"
+    }else{
+      this.tipoMultiSelec="Serie"
+    }
   }
 
   borrarContenido(id:string){
@@ -55,7 +66,10 @@ export class CarouselComponent implements OnInit {
     this.borrar.emit(id)
   }
 
+
   editarContenido(multimediaSeleccionada:any){
+    this.identificador(multimediaSeleccionada)
+    console.log(multimediaSeleccionada)
     this.editar.emit(multimediaSeleccionada)
   }
 }
