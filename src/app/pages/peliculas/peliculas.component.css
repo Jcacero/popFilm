@@ -5,3 +5,14 @@ h1{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+button{
+    margin: 20px;
+}
+
+form{
+    width: 500px;
+    height: 500px;
+}
+input , textarea{
+    width: 100%;
+}

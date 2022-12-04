@@ -10,37 +10,139 @@
         <div class="container__background-triangle">
             <div class="triangle triangle1"></div>
             <div class="triangle triangle2"></div>
-            <div class="triangle triangle3"></div>
+            <div class="triangle triangle3"></div> <!-- este triangulo tapa el navbar y hace que la pagina se corra hacia la derecha, hablar para saber que hacer con el -->
         </div>
         <!-- CARDS -->
         <div class="container__cards" *ngFor="let i of arregloCineastas">
             <div class="card">
+                
                 <div class="cover__card">
-                    <img src="{{i.imagenCineasta}}" alt="">
+                    <img src="{{i.imagenCineasta}}" alt="imagenCineasta">
                 </div>
                 <h2>{{i.nombreApodo}}</h2>
-                <p>{{i.rol}}</p>
+                <hr>
+                <p><b>Roles:</b>  {{i.rol}}</p>
                 <hr>
                 <p-button (click)="showModalDialog(i)" label="+info"></p-button>
+
+                <!-- Botones para administrador -->
+                <button style="margin-right:10px;" pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
+                <button pButton pRipple type="button" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
             </div>
         </div>
         <!-- FUNCION QUE LLAMA EL DIALOGO -->
-        <p-dialog class="dialog" header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
-        [draggable]="false" [resizable]="false">
-        <p>nombre completo: {{cineastaSelec.nombreCompleto}}</p>
-        <p>edad: {{cineastaSelec.edad}}</p>
-        <p>fecha de nacimiento: {{cineastaSelec.fechaNac}}</p>
-        <p>lugar de nacimiento: {{cineastaSelec.lugarNac}}</p>
-        <p>residencia: {{cineastaSelec.residencia}}</p>
-        <p>educacion: {{cineastaSelec.educacion}}</p>
-        <p>años activo: {{cineastaSelec.anosActivo}}</p>
-        <p>peliculas realizadas: {{cineastaSelec.cantMultimedia}}</p>
-        <p>trabajos destacados: {{cineastaSelec.trabajosDestacados}}</p>
-        <p>premios: {{cineastaSelec.premios}}</p>
-        <p>curiosidad: {{cineastaSelec.curiosidad}}</p>
-        <p>descripcion: {{cineastaSelec.descripcion}}</p>
-            <ng-template pTemplate="footer">
-            <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
-            </ng-template>
+        <p-dialog class="dialog" header="Información" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+            [draggable]="false" [resizable]="false">
+            <div class="containerImagen">
+                <img class="imagenMasInfo" src="{{cineastaSelec.imagenCineasta}}" alt="imagenCineasta"> <!-- imagen del actor dentro del dialog -->
+            </div>
+            <h2>{{cineastaSelec.nombreApodo}}</h2> <!-- apodo del actor dentro del dialog -->
+            <p><b>Nombre completo:</b> {{cineastaSelec.nombreCompleto}}</p>
+            <p><b>Edad: </b>{{cineastaSelec.edad}}</p>
+            <p><b>Fecha de nacimiento:</b> {{cineastaSelec.fechaNac}}</p>
+            <p><b>Lugar de nacimiento:</b> {{cineastaSelec.lugarNac}}</p>
+            <p><b>Residencia: </b>{{cineastaSelec.residencia}}</p>
+            <p><b>Educacion: </b>{{cineastaSelec.educacion}}</p>
+            <p><b>Años activo:</b> {{cineastaSelec.anosActivo}}</p>
+            <p><b>Peliculas realizadas:</b> {{cineastaSelec.cantMultimedia}}</p>
+            <p><b>Trabajos destacados:</b> {{cineastaSelec.trabajosDestacados}}</p>
+            <p><b>Premios: </b>{{cineastaSelec.premios}}</p>
+            <p><b>Religion:</b> {{cineastaSelec.religion}}</p>
+            <p><b>Curiosidad:</b> {{cineastaSelec.curiosidad}}</p>
+            <p><b>Descripcion: </b>{{cineastaSelec.descripcion}}</p>
+                <ng-template pTemplate="footer">
+                <p-button icon="pi pi-check" (click)="displayModal=false" styleClass="p-button-text"></p-button>
+                </ng-template>
         </p-dialog>
+
+
+<!-- Modo administrador -->
+
+<!-- Boton para agregar  -->
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" (click)="mostrarDialogo()"></button>
+
+
+<!-- Formulario para agregar multimedia -->
+
+<p-dialog header="{{textoBoton}}" [(visible)]="modalVisible">
+    
+    Ingrese informacion del cineasta
+
+<form [formGroup]="cineasta">
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="nombreApodo">
+        <label for="float-input">Nombre Conocido</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <textarea pInputTextarea formControlName="nombreCompleto"></textarea>
+        <label for="float-input">Nombre completo</label>
+    </span>
+    
+    <span class="p-float-label m-4" >
+        <input type="number" pInputText formControlName="edad">
+        <label for="float-input">Edad</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="fechaNac">
+        <label for="float-input">Fecha de Nacimiento Ej.(10/07/1980)</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="number" pInputText formControlName="lugarNac">
+        <label for="float-input">Lugar de nacimiento</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="residencia">
+        <label for="float-input">Residencia</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="educacion">
+        <label for="float-input">Lugar donde fue educado</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="anosActivo">
+        <label for="float-input">Años activos</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="religion">
+        <label for="float-input">Religion</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="curiosidad">
+        <label for="float-input">Dato curioso</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="premios">
+        <label for="float-input">premios</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="number" pInputText formControlName="cantMultimedia">
+        <label for="float-input">Cantidad de peliculas, series, etc. en las que participó</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="trabajosDestacados">
+        <label for="float-input">Trabajos destacados</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="descripcion">
+        <label for="float-input">Descripcion</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="rol">
+        <label for="float-input">Puesto de trabajo Ej. actor, productor, etc</label>
+    </span>
+
+    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
+
+
+    <p-button class="p-button-success" label="{{textoBoton}}" (click)="cargarDatos()" ></p-button>
+</form>
+</p-dialog>
+
+<!-- para eliminar -->
+<p-dialog header="¡¡¡ADVERTENCIAA!!" [(visible)]="eliminarVisible">
+    <h4>¿Desea eliminar este cineasta?</h4>
+    <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-rounded p-button-danger p-button-outlined"></button>
+    <button style="margin-right:10px;" pButton pRipple type="button" (click)="borrarCineasta()" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+</p-dialog>
         

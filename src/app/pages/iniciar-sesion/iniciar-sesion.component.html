@@ -1,14 +1,14 @@
-
-    <h1 style="color: white;">Iniciar Sesion</h1>
+<div class="inputGroup">
     <form [formGroup]="loginForm">
+            <h1 style="color: white;">Iniciar Sesion</h1>
         <span class="p-float-label m-4" >
             <input type="text" pInputText formControlName="nombreUsu">
-            <label for="float-input">Nombre de Usuario</label>
+            <label for="float-input">Usuario</label>
         </span>
         <span class="p-float-label m-4">
             <input type="text" pInputText formControlName="contraUsu">
             <label for="float-input">Contraseña</label>
         </span>
-        <!-- <button pButton pRipple type="button" label="Aceptar" (click)="verificarUsuario()" class="p-button-rounded p-button-text"></button> -->
-    </form>
-
+        <button pButton pRipple type="button" label="Aceptar" class="p-button-outlined p-button-rounded p-button-warning"><p>Aceptar</p></button>
+</form>
+</div>
