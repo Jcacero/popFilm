@@ -19,7 +19,7 @@
         <label for="float-input">Titulo</label>
     </span>
     <span class="p-float-label m-4">
-        <p-dropdown [options]="tipos" [(ngModel)]="tipoSeleccionado" formControlName="tipo" optionLabel="name"></p-dropdown>
+        <p-dropdown [options]="tipos"  [(ngModel)]="tipoSeleccionado" formControlName="tipo" optionLabel="name"></p-dropdown>
         <label for="float-input">Tipo: serie/pelicula</label>
     </span>
     <span class="p-float-label m-4" >
@@ -68,5 +68,5 @@
     <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
 
 
-    <p-button class="p-button-success botonFormulario" label="{{textoBoton}}" (click)="cargarDatos()" ></p-button>
+    <p-button class="p-button-success" label="{{textoBoton}}" (click)="cargarDatos()" ></p-button>
 </form>

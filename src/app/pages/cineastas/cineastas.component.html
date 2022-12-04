@@ -25,6 +25,9 @@
                 <hr>
                 <p-button (click)="showModalDialog(i)" label="+info"></p-button>
 
+                <!-- Botones para administrador -->
+                <button style="margin-right:10px;" pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
+                <button pButton pRipple type="button" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
             </div>
         </div>
         <!-- FUNCION QUE LLAMA EL DIALOGO -->
@@ -51,4 +54,95 @@
                 <p-button icon="pi pi-check" (click)="displayModal=false" styleClass="p-button-text"></p-button>
                 </ng-template>
         </p-dialog>
+
+
+<!-- Modo administrador -->
+
+<!-- Boton para agregar  -->
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" (click)="mostrarDialogo()"></button>
+
+
+<!-- Formulario para agregar multimedia -->
+
+<p-dialog header="{{textoBoton}}" [(visible)]="modalVisible">
+    
+    Ingrese informacion del cineasta
+
+<form [formGroup]="cineasta">
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="nombreApodo">
+        <label for="float-input">Nombre Conocido</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <textarea pInputTextarea formControlName="nombreCompleto"></textarea>
+        <label for="float-input">Nombre completo</label>
+    </span>
+    
+    <span class="p-float-label m-4" >
+        <input type="number" pInputText formControlName="edad">
+        <label for="float-input">Edad</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="fechaNac">
+        <label for="float-input">Fecha de Nacimiento Ej.(10/07/1980)</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="number" pInputText formControlName="lugarNac">
+        <label for="float-input">Lugar de nacimiento</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="residencia">
+        <label for="float-input">Residencia</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="educacion">
+        <label for="float-input">Lugar donde fue educado</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="anosActivo">
+        <label for="float-input">Años activos</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="religion">
+        <label for="float-input">Religion</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="curiosidad">
+        <label for="float-input">Dato curioso</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="premios">
+        <label for="float-input">premios</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="number" pInputText formControlName="cantMultimedia">
+        <label for="float-input">Cantidad de peliculas, series, etc. en las que participó</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="trabajosDestacados">
+        <label for="float-input">Trabajos destacados</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="descripcion">
+        <label for="float-input">Descripcion</label>
+    </span>
+    <span class="p-float-label m-4" >
+        <input type="text" pInputText formControlName="rol">
+        <label for="float-input">Puesto de trabajo Ej. actor, productor, etc</label>
+    </span>
+
+    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
+
+
+    <p-button class="p-button-success" label="{{textoBoton}}" (click)="cargarDatos()" ></p-button>
+</form>
+</p-dialog>
+
+<!-- para eliminar -->
+<p-dialog header="¡¡¡ADVERTENCIAA!!" [(visible)]="eliminarVisible">
+    <h4>¿Desea eliminar este cineasta?</h4>
+    <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-rounded p-button-danger p-button-outlined"></button>
+    <button style="margin-right:10px;" pButton pRipple type="button" (click)="borrarCineasta()" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>
+</p-dialog>
         

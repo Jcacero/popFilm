@@ -30,7 +30,7 @@
 <!-- dialogo que se muestra para eliminar -->
 <p-dialog header="¡Atención!" [(visible)]="eliminarVisible">
     <h4>¿Desea eliminar este contenido?</h4>
-    <button pButton pRipple type="button" *ngIf="tipoMultiSelec=='Serie'" (click)="borrarContenido(multimediaSeleccionada.id_serie)" icon="pi pi-check" class="p-button-rounded p-button-success p-button-outlined"></button>
+    <button pButton pRipple type="button" *ngIf="tipoMultiSelec=='Serie'" (click)="borrarContenido(multimediaSeleccionada.id_serie)" icon="pi pi-check" class="p-button-rounded p-button-primary p-button-outlined"></button>
     <button pButton pRipple type="button" *ngIf="tipoMultiSelec=='Pelicula'"(click)="borrarContenido(multimediaSeleccionada.id_multimedia)" icon="pi pi-check" class="p-button-rounded p-button-success p-button-outlined"></button>
     <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-rounded p-button-danger p-button-outlined"></button>
 </p-dialog>

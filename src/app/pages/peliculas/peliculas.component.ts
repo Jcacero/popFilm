@@ -39,13 +39,12 @@ export class PeliculasComponent implements OnInit {
         this.arregloPeliculas=multimedia)
   }
 
-
   arregloPeliculas: MultimediaModel []
   textoBoton:string;
   multimediaSeleccionada:MultimediaModel;
   imagen:string;
   nombreImagen:string;
-
+  modalVisible:boolean=false;
   
   
   multimedia=new FormGroup({
@@ -60,10 +59,10 @@ export class PeliculasComponent implements OnInit {
     reparto:new FormControl('',Validators.required),
     guion:new FormControl('',Validators.required),
     direccion:new FormControl('',Validators.required),
-    musica:new FormControl('',Validators.required)
+    musica:new FormControl('',Validators.required),
+    imagenMultimedia:new FormControl //agregado para arreglar error
   })
   
-  modalVisible:boolean=false;
   
   agregarMultimedia(){
     if(this.multimedia.valid){
@@ -105,46 +104,38 @@ export class PeliculasComponent implements OnInit {
       alert("El formulario no está comlpeto")
     }
   }
+
+  editarMultimedia(){
+    let datos:MultimediaModel ={
+      titulo:this.multimedia.value.titulo!,
+      tipo:this.multimedia.value.tipo!,
+      descripcion:this.multimedia.value.descripcion!,
+      genero:this.multimedia.value.genero!,
+      ano:this.multimedia.value.ano,
+      pais:this.multimedia.value.pais!,
+      duracion:this.multimedia.value.duracion,
+      productora:this.multimedia.value.productora!,
+      reparto:this.multimedia.value.reparto!,
+      guion:this.multimedia.value.guion!,
+      direccion:this.multimedia.value.direccion!,
+      musica:this.multimedia.value.musica!,
+      imagenMultimedia:this.multimedia.value.imagenMultimedia!,
+      id_multimedia:this.multimediaSeleccionada.id_multimedia,
+    }
+
+    this.servicioMultimedia.modificarMultimedia(this.multimediaSeleccionada.id_multimedia,datos).then(m=>{
+      alert("La pelicula fue modificada con exito")
+    })
+    .catch((error)=>{
+      alert("La pelicula no pudo ser modificada \n Error:"+error)
+    })
+    
+  }
   
 
   mostrarDialogo(){
     this.textoBoton="Agregar Pelicula"
     this.modalVisible=true;
-  }
-
-  cargarDatos(){
-    if(this.textoBoton==="Agregar Pelicula"){
-      this.agregarMultimedia()
-    }
-    else if (this.textoBoton==="Editar Pelicula"){
-      this.editarMultimedia()
-    }
-    this.modalVisible = false;
-    this.multimedia.reset();
-  }
-
-  cargarImagen(event:any){
-    let archivo=event.target.files[0];
-    let  reader=new FileReader();
-    if(archivo!=undefined){
-      reader.readAsDataURL(archivo)
-      reader.onloadend = () =>{
-        let url = reader.result
-        if(url!=null){
-          this.nombreImagen = archivo.name
-          this.imagen=url.toString()
-        }
-      }
-    }
-  }
-
-  borrarPelicula(id:string){
-    this.servicioMultimedia.eliminarMultimedia(id).then((resp)=>{
-      alert("La pelicula fue eliminada con éxito")
-    })
-    .catch((error)=>{
-      alert("La pelicula no pudo ser eliminada \n Error:"+error)
-    })
   }
 
   mostrarEditar(multimediaSeleccionada:MultimediaModel){
@@ -168,28 +159,39 @@ export class PeliculasComponent implements OnInit {
     })
   }
 
-  editarMultimedia(){
-    let datos:MultimediaModel ={
-      titulo:this.multimedia.value.titulo!,
-      tipo:this.multimedia.value.tipo!,
-      descripcion:this.multimedia.value.descripcion!,
-      genero:this.multimedia.value.genero!,
-      ano:this.multimedia.value.ano,
-      imagenMultimedia:this.multimedia.value.imagenMultimedia,
-      id_multimedia:this.multimediaSeleccionada.id_multimedia,
-      pais:this.multimedia.value.pais!,
-      duracion:this.multimedia.value.duracion,
-      productora:this.multimedia.value.productora!,
-      reparto:this.multimedia.value.reparto!,
-      guion:this.multimedia.value.guion!,
-      direccion:this.multimedia.value.direccion!,
-      musica:this.multimedia.value.musica!,
+  cargarDatos(){
+    if(this.textoBoton==="Agregar Pelicula"){
+      this.agregarMultimedia()
     }
-    this.servicioMultimedia.modificarMultimedia(this.multimediaSeleccionada.id_multimedia,datos).then(multimedia=>{
-      alert("La pelicula fue modificada con exito")
+    else if (this.textoBoton==="Editar Pelicula"){
+      this.editarMultimedia()
+    }
+    this.modalVisible = false;
+    this.multimedia.reset();
+  }
+
+  borrarPelicula(id:string){
+    this.servicioMultimedia.eliminarMultimedia(id).then((resp)=>{
+      alert("La pelicula fue eliminada con éxito")
     })
     .catch((error)=>{
-      alert("La pelicula no pudo ser modificada \n Error:"+error)
+      alert("La pelicula no pudo ser eliminada \n Error:"+error)
     })
   }
+
+  cargarImagen(event:any){
+    let archivo=event.target.files[0];
+    let  reader=new FileReader();
+    if(archivo!=undefined){
+      reader.readAsDataURL(archivo)
+      reader.onloadend = () =>{
+        let url = reader.result
+        if(url!=null){
+          this.nombreImagen = archivo.name
+          this.imagen=url.toString()
+        }
+      }
+    }
+  }
+
 }

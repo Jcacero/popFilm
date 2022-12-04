@@ -62,7 +62,8 @@ export class SeriesComponent implements OnInit {
     direccion:new FormControl('',Validators.required),
     musica:new FormControl('',Validators.required),
     numeroTemporadas:new FormControl('',Validators.required),
-    cantidadCaps:new FormControl('',Validators.required)
+    cantidadCaps:new FormControl('',Validators.required),
+    imagenMultimedia:new FormControl
   })
   
   modalVisible:boolean=false;
@@ -104,7 +105,9 @@ export class SeriesComponent implements OnInit {
           )
         }
       )
-
+    }
+    else{
+      alert("El formulario no esta completo")
     }
   }
 
@@ -158,7 +161,6 @@ export class SeriesComponent implements OnInit {
       descripcion:serieSeleccionada.descripcion,
       genero:serieSeleccionada.genero,
       ano:serieSeleccionada.ano,
-      imagenMultimedia:serieSeleccionada.imagenMultimedia,
       pais:serieSeleccionada.pais,
       duracion:serieSeleccionada.duracion,
       productora:serieSeleccionada.productora,
@@ -167,7 +169,9 @@ export class SeriesComponent implements OnInit {
       direccion:serieSeleccionada.direccion,
       musica:serieSeleccionada.musica,
       cantidadCaps:serieSeleccionada.cantidadCaps,
-      numeroTemporadas:serieSeleccionada.numeroTemporadas
+      numeroTemporadas:serieSeleccionada.numeroTemporadas,
+      imagenMultimedia:serieSeleccionada.imagenMultimedia,
+
     })
   }
 
@@ -178,8 +182,6 @@ export class SeriesComponent implements OnInit {
       descripcion:this.serie.value.editorial!,
       genero:this.serie.value.genero!,
       ano:this.serie.value.ano!,
-      imagenMultimedia:this.serie.value.imagenMultimedia!,
-      id_serie:this.serie.value.id_serie!,
       pais:this.serie.value.pais!,
       duracion:this.serie.value.duracion!,
       productora:this.serie.value.productora!,
@@ -188,7 +190,9 @@ export class SeriesComponent implements OnInit {
       direccion:this.serie.value.direccion!,
       musica:this.serie.value.musica!,
       cantidadCaps:this.serie.value.cantidadCaps!,
-      numeroTemporadas:this.serie.value.numeroTemporadas!
+      numeroTemporadas:this.serie.value.numeroTemporadas!,
+      imagenMultimedia:this.serie.value.imagenMultimedia!,
+      id_serie:this.serie.value.id_serie!,
     }
     this.servicioSeries.modificarSerie(this.serieSeleccionada.id_serie,datos).then(s=>{
       alert("La serie fue modificada con éxito")
