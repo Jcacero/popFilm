@@ -28,14 +28,18 @@ export class UsuariosService {
         usuario=>{
           if(form.value.nombreUsu == usuario.user){
             if(form.value.contraUsu == usuario.contrasena){
-              this.isLoged = true
-              this.galletita.set("sesionIniciada",this.isLoged.toString())
+              this.galletita.set("sesionIniciada","true")
               texto = "inicio sesion"
             }
           }
         }
       )
     }
+  }
+
+
+  logOut(){
+    this.galletita.delete("sesionIniciada")
   }
   
 }
