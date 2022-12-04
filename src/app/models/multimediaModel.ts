@@ -3,7 +3,7 @@ export interface MultimediaModel {
     tipo:string,
     descripcion:string,
     genero:string,
-    año:string,
+    ano:string,
     imagenMultimedia:string,
     id_multimedia:string,
     pais:string,
