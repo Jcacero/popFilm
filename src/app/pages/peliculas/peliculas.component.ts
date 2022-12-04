@@ -12,17 +12,13 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class PeliculasComponent implements OnInit {
 
 
-  tipos: any[];
   tipoSeleccionado: string;
   generos: any[];
   generoSeleccionado: string;
   value10: any;
 
   constructor(private servicioMultimedia:MultimediaService, private servicioStorage: StorageService) {
-    this.tipos = [
-      {name: 'Pelicula'},
-      {name: 'Serie'},
-    ];
+
 
     this.generos = [
       {name: 'Terror'},
@@ -45,11 +41,11 @@ export class PeliculasComponent implements OnInit {
   imagen:string;
   nombreImagen:string;
   modalVisible:boolean=false;
+  habilitarImagen:boolean=false;
   
   
   multimedia=new FormGroup({
     titulo:new FormControl('',Validators.required),
-    tipo:new FormControl('',Validators.required),
     descripcion:new FormControl('',Validators.required),
     genero:new FormControl('',Validators.required),
     ano:new FormControl('',Validators.required),
@@ -60,7 +56,7 @@ export class PeliculasComponent implements OnInit {
     guion:new FormControl('',Validators.required),
     direccion:new FormControl('',Validators.required),
     musica:new FormControl('',Validators.required),
-    imagenMultimedia:new FormControl //agregado para arreglar error
+    imagenMultimedia: new FormControl("", Validators.required)
   })
   
   
@@ -68,7 +64,7 @@ export class PeliculasComponent implements OnInit {
     if(this.multimedia.valid){
       let nuevaMultimedia:MultimediaModel ={
         titulo:this.multimedia.value.titulo!,
-        tipo:this.multimedia.value.tipo!,
+        tipo:"Pelicula",
         descripcion:this.multimedia.value.descripcion!,
         genero:this.multimedia.value.genero!,
         ano:this.multimedia.value.ano!,
@@ -106,6 +102,7 @@ export class PeliculasComponent implements OnInit {
   }
 
   editarMultimedia(){
+    this.multimedia.removeControl("imagenMultimedia")
     let datos:MultimediaModel ={
       titulo:this.multimedia.value.titulo!,
       tipo:this.multimedia.value.tipo!,
@@ -119,7 +116,7 @@ export class PeliculasComponent implements OnInit {
       guion:this.multimedia.value.guion!,
       direccion:this.multimedia.value.direccion!,
       musica:this.multimedia.value.musica!,
-      imagenMultimedia:this.multimedia.value.imagenMultimedia!,
+      imagenMultimedia:this.multimediaSeleccionada.imagenMultimedia,
       id_multimedia:this.multimediaSeleccionada.id_multimedia,
     }
 
@@ -134,11 +131,16 @@ export class PeliculasComponent implements OnInit {
   
 
   mostrarDialogo(){
+    this.habilitarImagen=false;
+    this.multimedia.setControl("imagenMultimedia",new FormControl("", Validators.required))
     this.textoBoton="Agregar Pelicula"
     this.modalVisible=true;
   }
 
+
   mostrarEditar(multimediaSeleccionada:MultimediaModel){
+    this.imagen="";
+    this.habilitarImagen=true;
     this.multimediaSeleccionada=multimediaSeleccionada
     this.textoBoton="Editar Pelicula"
     this.modalVisible=true;
