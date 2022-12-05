@@ -6,10 +6,6 @@
     </ng-template>
     
     <ng-template pTemplate="end">
-
- 
-
-
         <button pButton pRipple type="button" style="color:white" *ngIf="!admin" label="Iniciar" icon="pi pi-sign-in" routerLink="iniciar-sesion" class="p-button-rounded p-button-text"></button>
         <button pButton pRipple type="button" style="color:white" *ngIf="admin" label="Cerrar" icon="pi pi-sign-in" (click)="cerrarSesion()" class="p-button-rounded p-button-text"></button>
     </ng-template>

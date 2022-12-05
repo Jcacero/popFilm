@@ -20,19 +20,15 @@
                     <img src="{{i.imagenCineasta}}" alt="imagenCineasta">
                 </div>
                 <h2>{{i.nombreApodo}}</h2>
-                <p><b>Roles:</b>  {{i.rol}}</p>
+                <p><b>Roles:</b>{{i.rol}}</p>
                 <hr>
-                <p-button (click)="showModalDialog(i)" label="Más Información"></p-button>
+                <p-button (click)="showModalDialog(i)" label="Más informacion"></p-button>
 
                 <!-- Botones para administrador -->
 
-                <button style="margin-right:10px;"  pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
-                <button pButton pRipple type="button" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
->>>>>>> 64888ac73921210363cd0084aaa9c8046bf6f4af
-=======
+
                 <button style="margin-right:10px;" *ngIf="admin===true" pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
                 <button pButton pRipple type="button" *ngIf="admin===true" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
->>>>>>> 0ff68663085ff022c1009605e7457fd58874b795
             </div>
         </div>
         <!-- FUNCION QUE LLAMA EL DIALOGO -->
@@ -41,6 +37,7 @@
             <div class="containerImagen">
                 <img class="imagenMasInfo" src="{{cineastaSelec.imagenCineasta}}" alt="imagenCineasta"> <!-- imagen del actor dentro del dialog -->
             </div>
+            <div class="containerInfo">
             <h2>{{cineastaSelec.nombreApodo}}</h2> <!-- apodo del actor dentro del dialog -->
             <p><b>Nombre completo:</b> {{cineastaSelec.nombreCompleto}}</p>
             <p><b>Edad: </b>{{cineastaSelec.edad}}</p>
@@ -55,6 +52,7 @@
             <p><b>Religion:</b> {{cineastaSelec.religion}}</p>
             <p><b>Curiosidad:</b> {{cineastaSelec.curiosidad}}</p>
             <p><b>Descripcion: </b>{{cineastaSelec.descripcion}}</p>
+        </div>
                 <ng-template pTemplate="footer">
                 <p-button icon="pi pi-check" (click)="displayModal=false" styleClass="p-button-text"></p-button>
                 </ng-template>
@@ -145,7 +143,7 @@
 </p-dialog>
 
 <!-- para eliminar -->
-<p-dialog header="¡¡¡ADVERTENCIAA!!" [(visible)]="eliminarVisible">
+<p-dialog header="¡Advertecia!" [(visible)]="eliminarVisible">
     <h4>¿Desea eliminar este cineasta?</h4>
     <button pButton pRipple type="button" icon="pi pi-times" (click)="eliminarVisible=false" class="p-button-rounded p-button-danger p-button-outlined"></button>
     <button style="margin-right:10px;" pButton pRipple type="button" (click)="borrarCineasta()" icon="pi pi-check" class="p-button-rounded p-button-outlined"></button>

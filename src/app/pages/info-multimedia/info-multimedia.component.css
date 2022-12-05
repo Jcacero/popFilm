@@ -1,11 +1,38 @@
-
 .container{
-    padding: 40px;
-}
-h1{
+    padding: 20px;}
+/* Titulo de pelicula/serie */
+    h1{
     color: white;
     text-align: center;
-}
-p{
+    font-weight: bold;}
+/* Subtitulo de info */
+    dt{
+    color: rgb(255, 211, 146);
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    width:105px;
+    text-align: right;
+    margin-top: 1px;}
+/* Info */
+    dd{
     color: white;
-}
+    font-size: 15px;
+    margin: 4px 5px 8px 120px;
+    line-height: 18px;}
+/* Imagen */
+    img{
+    width: 100%;
+    min-height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(255, 230, 193, 0.356), 0 2px 4px rgba(255, 234, 201, 0.404)}
+/* Genero y tipo */
+    h3{
+    color: rgb(255, 211, 146);
+    font-weight: bold;}
+    p{
+    color: white;}
+    .tipo{
+        color: rgb(170, 170, 170);
+
+    }
