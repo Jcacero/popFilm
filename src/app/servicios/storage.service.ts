@@ -9,7 +9,9 @@ export class StorageService {
 
   constructor() { }
 
-  async subirImagen(nombre:string,imagen:any,carpeta:string){
+
+  /* funcion para subir IMG en la BD */
+  async subirImagen(nombre:string,imagen:any,carpeta:string){ //recibe nombre de img, la imagen, y el nombre de la carpeta donde se guardará 
     try{
       let referenciaImagen = ref(this.storage,carpeta+'/'+nombre)/* guardo la referencia de la imagen en el storage */
       this.respuesta = await uploadString(referenciaImagen,imagen,'data_url') /* se actualiza la imagen del storage */
@@ -25,6 +27,7 @@ export class StorageService {
   }
 
 
+  //obtine url de la imagen y la retorna
   obtenerUrlImagen(respuesta:UploadResult){
     return getDownloadURL(respuesta.ref)
   }
