@@ -43,7 +43,11 @@ label{
 .p-inputtext{
     margin-left: 2px;
     margin-top: 5px;
+<<<<<<< HEAD
     color: white;
+=======
+    color:white;
+>>>>>>> 64888ac73921210363cd0084aaa9c8046bf6f4af
 }
 .p-inputtext:enabled:focus{
     box-shadow: 0 0 0 0.1rem #ffd078;

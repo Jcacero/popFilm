@@ -2,13 +2,17 @@
     <form [formGroup]="loginForm">
             <h1 style="color: white;">Iniciar Sesion</h1>
         <span class="p-float-label m-4" >
-            <input type="text" pInputText formControlName="nombreUsu">
+            <input type="text" pInputText formControlName="username">
             <label for="float-input">Usuario</label>
         </span>
         <span class="p-float-label m-4">
-            <input type="text" pInputText formControlName="contraUsu">
+            <input type="password" pInputText formControlName="contrasena">
             <label for="float-input">Contraseña</label>
         </span>
+<<<<<<< HEAD
         <button pButton pRipple type="button" label="Aceptar" class="p-button-outlined p-button-rounded p-button-warning"></button>
+=======
+        <button pButton pRipple type="button" (click)="iniciarSesion()"label="Aceptar" class="p-button-outlined p-button-rounded p-button-warning"></button>
+>>>>>>> 64888ac73921210363cd0084aaa9c8046bf6f4af
 </form>
 </div>

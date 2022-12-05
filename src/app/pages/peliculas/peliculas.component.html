@@ -1,27 +1,22 @@
-<h1>Accion</h1>
-<app-carousel [miMultimedia]="arregloPeliculas2"></app-carousel>
+<h1>Peliculas</h1>
+<app-carousel [miMultimedia]="arregloPeliculas" (borrar)="borrarPelicula($event)" (editar)="mostrarEditar($event)"></app-carousel>
 
 <!-- Habilitar en modo administrador -->
 
 
-
 <!-- Boton para agregar  -->
-<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" (click)="mostrarDialogo()"></button>
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" *ngIf="admin===true" (click)="mostrarDialogo()"></button>
 
 
 <!-- Formulario para agregar multimedia -->
 
 <p-dialog header="{{textoBoton}}" [(visible)]="modalVisible">
-    Ingrese la Informacion de la pelicula
+    Ingrese la Informacion de la película
 
 <form [formGroup]="multimedia">
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="titulo">
         <label for="float-input">Titulo</label>
-    </span>
-    <span class="p-float-label m-4">
-        <p-dropdown [options]="tipos" [(ngModel)]="tipoSeleccionado" formControlName="tipo" optionLabel="name"></p-dropdown>
-        <label for="float-input">Tipo: serie/pelicula</label>
     </span>
     <span class="p-float-label m-4" >
         <textarea pInputTextarea formControlName="descripcion"></textarea>
@@ -33,8 +28,8 @@
     </span>
     
     <span class="p-float-label m-4" >
-        <p>Año de estreno</p>
-        <p-calendar view="year" formControlName="ano" dateFormat="yy" inputId="yearpicker"></p-calendar>
+        <input type="number" pInputText formControlName="ano">
+        <label for="float-input">Año de estreno</label>
     </span>
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="pais">
@@ -42,7 +37,7 @@
     </span>
     <span class="p-float-label m-4" >
         <input type="number" pInputText formControlName="duracion">
-        <label for="float-input">Duracion en miunutos : (Ej. 123 min)</label>
+        <label for="float-input">Duracion en miunutos : (Ej. 120 min)</label>
     </span>
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="productora">
@@ -65,7 +60,7 @@
         <label for="float-input">Director Musical</label>
     </span>
 
-    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <input type="file" [hidden]="habilitarImagen" pInputText formControlName="imagenMultimedia" accept="imagen/*" (change)="cargarImagen($event)">
     <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
 
 

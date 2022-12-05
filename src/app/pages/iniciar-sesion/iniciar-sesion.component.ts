@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Usuarios } from 'src/app/models/usuarios';
 import { UsuariosService } from 'src/app/servicios/usuarios.service';
-import { usuarios } from 'src/app/models/usuarios';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -10,15 +9,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./iniciar-sesion.component.css']
 })
 export class IniciarSesionComponent implements OnInit {
-  constructor() {
+  constructor(private servicioUsuario:UsuariosService) {
+    servicioUsuario.obtenerUsuarios().subscribe(u=>{
+      this.usuarioCollection=u
+    })
   }
-  ngOnInit(): void {
-  }
+  usuarioCollection:Usuarios []
+  ngOnInit(): void {}
 
   loginForm= new FormGroup({
     username:new FormControl('',Validators.required),
     contrasena:new FormControl('',Validators.required)
    })
    
+   iniciarSesion(){
+    console.log(this.usuarioCollection)
+    this.servicioUsuario.login(this.loginForm,this.usuarioCollection)
+   }
 }
-

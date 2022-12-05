@@ -1,8 +1,8 @@
 <h1>Series</h1>
-<app-carousel [miMultimedia]="arregloSeries"></app-carousel>
+<app-carousel [miMultimedia]="arregloSeries" (borrar)="borrarSerie($event)" (editar)="mostrarEditar($event)"></app-carousel>
 
 <!-- Boton para agregar  -->
-<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded botonAgregar" (click)="mostrarDialogo()"></button>
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded botonAgregar" *ngIf="admin===true" (click)="mostrarDialogo()"></button>
 
 
 <!-- Formulario para agregar multimedia -->
@@ -15,10 +15,6 @@
         <input type="text" pInputText formControlName="titulo">
         <label for="float-input">Titulo</label>
     </span>
-    <span class="p-float-label m-4">
-        <p-dropdown [options]="tipos" [(ngModel)]="tipoSeleccionado" formControlName="tipo" optionLabel="name"></p-dropdown>
-        <label for="float-input">Tipo: serie/pelicula</label>
-    </span>
     <span class="p-float-label m-4" >
         <textarea pInputTextarea formControlName="descripcion"></textarea>
         <label for="float-input">Descripción</label>
@@ -29,16 +25,17 @@
     </span>
     
     <span class="p-float-label m-4" >
-        <p>Año de estreno</p>
-        <p-calendar view="year" formControlName="ano" dateFormat="yy" inputId="yearpicker"></p-calendar>
+        <input type="number" pInputText formControlName="ano">
+        <label for="float-input">Año de estreno</label>
     </span>
+
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="pais">
         <label for="float-input">País</label>
     </span>
     <span class="p-float-label m-4" >
         <input type="number" pInputText formControlName="duracion">
-        <label for="float-input">Duracion en miunutos : (Ej. 123 min)</label>
+        <label for="float-input">Duracion en miunutos : (Ej. 120 min)</label>
     </span>
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="productora">
@@ -69,7 +66,7 @@
         <label for="float-input">Cantidad de capitulos</label>
     </span>
 
-    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <input type="file" [hidden]="habilitarImagen" pInputText formControlName="imagenMultimedia" accept="imagen/*" (change)="cargarImagen($event)">
     <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
 
 

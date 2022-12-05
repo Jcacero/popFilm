@@ -45,7 +45,7 @@ export class MultimediaService {
   
   modificarMultimedia(id_multimedia:string,nuevaData:MultimediaModel,){
     return this.db.collection('multimedia').doc(id_multimedia).update(nuevaData)
-  }
+ }
 
 
   eliminarMultimedia(id_multimedia:string){
