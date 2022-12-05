@@ -13,13 +13,8 @@ p{
     justify-content: center;
 }
 
-:host ::ng-deep .p-dialog .p-button {
-    min-width: 6rem;
-}
-
 *{
-    margin: 0;
-    padding: 0;
+    margin-top: 0;
     box-sizing: border-box;
 }
 
@@ -112,7 +107,6 @@ p{
 
 
 .container__cards{
-    width:33.33%;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -134,14 +128,6 @@ p{
     border-radius: 15px;
     transition: all 300ms;
 }
-
-/* .card:hover{
-    transform: translateY(-10px);
-}
-
-.card:hover .cover__card img{
-    transform: scale(1.1);
-} */
 
 .cover__card{
     width: 320px;
@@ -193,10 +179,9 @@ p{
     .container__cards{
         position: relative;
         top: 0;
-        left: 0;
+        left: 20px;
         transform: none;
-        margin-top: 100px;
-        padding-bottom: 100px;
+        margin-top: 40px;
     }
 }
 .dialog{
@@ -222,13 +207,16 @@ p{
     color: #ffffff;
     padding: 1.5rem;
     font-weight: bold;
-    border-top-right-radius: 6px;
-    border-top-left-radius: 6px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 ::ng-deep.p-dialog .p-dialog-content {
     background: #270907e3;
     color: #ffffff;
-    padding: 0 1.5rem 2rem 1.5rem;
+    padding: 0px 1.5rem 1rem 1.5rem;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
 }
 ::ng-deep.p-dialog .p-dialog-footer {
     border-top: 0 none;
@@ -238,17 +226,16 @@ p{
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
 }
-::ng-deep.p-dialog .p-button {
-    min-width: 4rem;
-}
 
 /* imagen que se muestra en el dialogo mas info */
 .imagenMasInfo{
-    width: 200px;
+    width: 150px;
     border-radius: 10px;
 }
 .containerImagen{
-    margin: 10px;
+    float: left;
+    margin-top: 30px;
+    margin-right: 20px;
     display: flex;
     justify-content: center;
 }

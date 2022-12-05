@@ -1,34 +1,32 @@
 <div class="container">
     <h1>{{contenidoSeleccionado.titulo}}</h1>
-
     <div class="grid">
-        <div class="col-4">
-            <h3 style="color: white;">Tipo</h3>
-            <p>{{contenidoSeleccionado.tipo.name}}</p>
-            <h3 style="color: white;">Pais</h3>
-            <p>{{contenidoSeleccionado.pais}}</p>
-            <h3 style="color: white;">Descripcion</h3>
-            <p>{{contenidoSeleccionado.descripcion}}</p>
-            <h3 style="color: white;">Genero</h3>
-            <p>{{contenidoSeleccionado.genero.name}}</p>
-            <h3 style="color: white;">Año</h3>
-            <p>{{contenidoSeleccionado.ano}}</p>
-            <h3 style="color: white;">Duración</h3>
-            <p>{{contenidoSeleccionado.duracion}} Minutos</p>
+        <div class="col-4"><img src="{{contenidoSeleccionado.imagenMultimedia}}" style="width: 50%;" alt="{{contenidoSeleccionado.titulo}}">  
+            <h3>Genero</h3>
+            <p>{{contenidoSeleccionado.tipo.name}}, {{contenidoSeleccionado.genero.name}}. </p>
         </div>
-        <div class="col-4">
-            <h3 style="color: white;">Productora</h3>
-            <p>{{contenidoSeleccionado.productora}}</p>
-            <h3 style="color: white;">Reparto</h3>
-            <p>{{contenidoSeleccionado.reparto}}</p>
-            <h3 style="color: white;">Guion</h3>
-            <p>{{contenidoSeleccionado.guion}}</p>
-            <h3 style="color: white;">Direccion</h3>
-            <p>{{contenidoSeleccionado.direccion}}</p>
-            <h3 style="color: white;">Musica</h3>
-            <p>{{contenidoSeleccionado.musica}}</p>
-        </div>
-        <div class="col-4"><img src="{{contenidoSeleccionado.imagenMultimedia}}" style="width: 50%;" alt="{{contenidoSeleccionado.titulo}}">
-        </div>
+        <dl class="col-4">
+            <dt>Pais</dt>
+            <dd>{{contenidoSeleccionado.pais}}</dd>
+            <dt>Descripcion</dt>
+            <dd>{{contenidoSeleccionado.descripcion}}</dd>
+            <dt>Productora</dt>
+            <dd>{{contenidoSeleccionado.productora}}</dd>
+            <dt>Año</dt>
+            <dd>{{contenidoSeleccionado.ano}}</dd>
+            <dt>Duración</dt>
+            <dd>{{contenidoSeleccionado.duracion}} Minutos</dd>
+        </dl>
+        <dl class="col-4">
+            <dt>Reparto</dt>
+            <dd>{{contenidoSeleccionado.reparto}}</dd>
+            <dt>Guion</dt>
+            <dd>{{contenidoSeleccionado.guion}}</dd>
+            <dt>Direccion</dt>
+            <dd>{{contenidoSeleccionado.direccion}}</dd>
+            <dt>Musica</dt>
+            <dd>{{contenidoSeleccionado.musica}}</dd>
+        </dl>
+        
     </div>
 </div>

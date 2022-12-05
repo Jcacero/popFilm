@@ -43,12 +43,8 @@ label{
 .p-inputtext{
     margin-left: 2px;
     margin-top: 5px;
-<<<<<<< HEAD
-    color: white;
-=======
-    color:white;
->>>>>>> 64888ac73921210363cd0084aaa9c8046bf6f4af
-}
+    color: white;}
+
 .p-inputtext:enabled:focus{
     box-shadow: 0 0 0 0.1rem #ffd078;
     border-bottom-color: #ffd59e;
@@ -63,7 +59,7 @@ button{
         padding-right: 5px;   
         margin-bottom: 10px; 
         margin-top: 10px;   
-        background-color: #ffd27e; 
+        background-color: #ffd59ecc; 
         border-color: #4e000000; 
         border-style: solid; 
         border-radius: 100px;  
