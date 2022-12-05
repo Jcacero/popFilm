@@ -14,8 +14,8 @@
                             
                             <!-- Botones editar y eliminar habilitados para el admin -->
                             <div style="margin-top: 10px;">
-                                <button style="margin-right:10px;" pButton pRipple type="button" (click)="editarContenido(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
-                                <button pButton pRipple type="button" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
+                                <button style="margin-right:10px;" *ngIf="admin===true" pButton pRipple type="button" (click)="editarContenido(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
+                                <button pButton pRipple type="button" *ngIf="admin===true" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
                             </div>
 
                         </div>

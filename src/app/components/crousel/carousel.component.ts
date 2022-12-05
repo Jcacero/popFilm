@@ -1,4 +1,5 @@
 import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-carousel',
@@ -13,7 +14,7 @@ export class CarouselComponent implements OnInit {
   @Output () editar = new EventEmitter<any>()
   servicioMultimedia: any;
 
-  constructor() { 
+  constructor(private galletita: CookieService) { 
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
@@ -33,8 +34,10 @@ export class CarouselComponent implements OnInit {
     ];
   }
   ngOnInit(): void {
-
+    this.admin=this.galletita.check("sesionIniciada")
   }
+
+  admin:boolean=false;
 
   multimediaSeleccionada:any;
   textoBoton:string;

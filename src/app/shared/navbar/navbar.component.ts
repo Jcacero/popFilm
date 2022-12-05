@@ -2,6 +2,7 @@ import { Component, Input ,OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { UsuariosService } from 'src/app/servicios/usuarios.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,7 +13,7 @@ export class NavbarComponent implements OnInit {
   items: MenuItem[] = [];
   modalVisible:boolean=false; 
 
-  constructor(private galletita:CookieService) {}
+  constructor(private galletita:CookieService, private servicioUsuario:UsuariosService) {}
 
   ngOnInit(): void {
 
@@ -34,12 +35,7 @@ export class NavbarComponent implements OnInit {
           icon:'pi pi-fw pi-user',
           routerLink:'/cineastas'
       },
-      {
-          label: 'Admin', 
-          icon: 'pi pi-user-plus',
-          //visible:this.adminVisible,
-          routerLink:"admin"
-      }
+ 
   ];
 }
 
@@ -51,5 +47,9 @@ export class NavbarComponent implements OnInit {
    })
     mostrarDialogo(){
     this.modalVisible=true;
+  }
+
+  cerrarSesion(){
+    this.servicioUsuario.logOut()
   }
 }

@@ -23,7 +23,7 @@ export class UsuariosService {
     )
   }
   login(form: FormGroup,ususariosCol: Usuarios[]){
-    let texto = "no inicio"
+    let texto = "Usuario Incorrecto"
     if(form.valid){
       ususariosCol.forEach(
         usuario=>{
@@ -44,7 +44,11 @@ export class UsuariosService {
 
 
   logOut(){
+    alert("Ha cerrado sesion")
     this.galletita.delete("sesionIniciada")
+    this.router.navigateByUrl("/peliculas")
+              setTimeout(()=>{ location.reload()},300)
+             
   }
   
 }
