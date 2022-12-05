@@ -5,7 +5,7 @@
 
 
 <!-- Boton para agregar  -->
-<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" (click)="mostrarDialogo()"></button>
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" *ngIf="admin===true" (click)="mostrarDialogo()"></button>
 
 
 <!-- Formulario para agregar multimedia -->

@@ -1,6 +1,7 @@
 import { Component, Input ,OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,9 +12,12 @@ export class NavbarComponent implements OnInit {
   items: MenuItem[] = [];
   modalVisible:boolean=false; 
 
-  constructor() {}
+  constructor(private galletita:CookieService) {}
 
   ngOnInit(): void {
+
+    this.admin=this.galletita.check("sesionIniciada")
+
     this.items = [
       {
           label:'Peliculas',
@@ -38,6 +42,9 @@ export class NavbarComponent implements OnInit {
       }
   ];
 }
+
+  admin:boolean=false;
+
     loginForm= new FormGroup({
     username:new FormControl('',Validators.required),
     contrasena:new FormControl('',Validators.required)

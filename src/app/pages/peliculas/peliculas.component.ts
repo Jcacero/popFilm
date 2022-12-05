@@ -3,6 +3,7 @@ import { MultimediaModel } from 'src/app/models/multimediaModel';
 import { MultimediaService } from 'src/app/servicios/multimedia.service';
 import { StorageService } from 'src/app/servicios/storage.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-peliculas',
@@ -17,7 +18,7 @@ export class PeliculasComponent implements OnInit {
   generoSeleccionado: string;
   value10: any;
 
-  constructor(private servicioMultimedia:MultimediaService, private servicioStorage: StorageService) {
+  constructor(private servicioMultimedia:MultimediaService, private servicioStorage: StorageService, private galletita: CookieService) {
 
 
     this.generos = [
@@ -33,7 +34,11 @@ export class PeliculasComponent implements OnInit {
   ngOnInit(): void {
       this.servicioMultimedia.obtenerMultimedia().subscribe(multimedia=>
         this.arregloPeliculas=multimedia)
+
+        this.admin=this.galletita.check("sesionIniciada")
   }
+
+  admin:boolean=false;
 
   arregloPeliculas: MultimediaModel []
   textoBoton:string;
