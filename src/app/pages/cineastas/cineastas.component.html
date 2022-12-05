@@ -26,7 +26,7 @@
                 <p-button (click)="showModalDialog(i)" label="+info"></p-button>
 
                 <!-- Botones para administrador -->
-                <button style="margin-right:10px;" pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
+                <button style="margin-right:10px;"  pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
                 <button pButton pRipple type="button" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
             </div>
         </div>
@@ -59,7 +59,7 @@
 <!-- Modo administrador -->
 
 <!-- Boton para agregar  -->
-<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" (click)="mostrarDialogo()"></button>
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded" *ngIf="admin===true" (click)="mostrarDialogo()"></button>
 
 
 <!-- Formulario para agregar multimedia -->
@@ -87,7 +87,7 @@
         <label for="float-input">Fecha de Nacimiento Ej.(10/07/1980)</label>
     </span>
     <span class="p-float-label m-4" >
-        <input type="number" pInputText formControlName="lugarNac">
+        <input type="text" pInputText formControlName="lugarNac">
         <label for="float-input">Lugar de nacimiento</label>
     </span>
     <span class="p-float-label m-4" >
@@ -131,7 +131,7 @@
         <label for="float-input">Puesto de trabajo Ej. actor, productor, etc</label>
     </span>
 
-    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <input type="file" [hidden]="habilitarImagen" pInputText formControlName="imagenCineasta" accept="imagen/*" (change)="cargarImagen($event)">
     <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
 
 

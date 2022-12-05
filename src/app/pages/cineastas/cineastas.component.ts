@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Cineastas } from 'src/app/models/cineastas';
 import { StorageService } from 'src/app/servicios/storage.service';
 import { CineastasService } from 'src/app/servicios/cineastas.service';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-cineastas',
   templateUrl: './cineastas.component.html',
@@ -41,13 +42,17 @@ export class CineastasComponent implements OnInit {
   }
 
 
-  constructor(private servicioCineastas:CineastasService,  private servicioStorage: StorageService) { 
+  constructor(private servicioCineastas:CineastasService,  private servicioStorage: StorageService, private galletita:CookieService) { 
     
   }
 
   ngOnInit(): void {
     this.servicioCineastas.obtenerCineastas().subscribe(cineasta=>this.arregloCineastas=cineasta)
+    
+    this.admin=this.galletita.check("sesionIniciada")
   }
+  
+  admin:boolean=false;
 
   arregloCineastas:Cineastas []
   textoBoton:string;
@@ -55,6 +60,7 @@ export class CineastasComponent implements OnInit {
   nombreImagen:string
   modalVisible:boolean=false;
   eliminarVisible:boolean=false;
+  habilitarImagen:boolean=false;
 
   cineasta=new FormGroup({
     nombreApodo:new FormControl('',Validators.required),
@@ -72,7 +78,7 @@ export class CineastasComponent implements OnInit {
     trabajosDestacados:new FormControl('',Validators.required),
     descripcion:new FormControl('',Validators.required),
     rol:new FormControl('',Validators.required),
-    imagenCineasta:new FormControl
+    imagenCineasta:new FormControl("",Validators.required)
   })
 
   agregarCineasta(){
@@ -136,7 +142,7 @@ export class CineastasComponent implements OnInit {
         trabajosDestacados:this.cineasta.value.trabajosDestacados!,
         descripcion:this.cineasta.value.descripcion!,
         rol:this.cineasta.value.rol!,
-        imagenCineasta:this.cineasta.value.imagenCineasta!,
+        imagenCineasta:this.cineastaSelec.imagenCineasta,
         idCineasta:this.cineastaSelec.idCineasta
     }
 
@@ -151,11 +157,15 @@ export class CineastasComponent implements OnInit {
   
 
   mostrarDialogo(){
+    this.habilitarImagen=false;
+    this.cineasta.setControl("imagenCineasta",new FormControl("",Validators.required))
     this.textoBoton="Agregar Cineasta"
     this.modalVisible=true;
   }
 
   mostrarEditar(cineastaSelec:Cineastas){
+    this.imagen="";
+    this.habilitarImagen=true;
     this.cineastaSelec=cineastaSelec
     this.textoBoton="Editar Cineasta"
     this.modalVisible=true;
