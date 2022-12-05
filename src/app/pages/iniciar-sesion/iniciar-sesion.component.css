@@ -1,9 +1,3 @@
-/* ::ng-deep body{
-    background: no-repeat;
-    background-image: url(../../../assets/imagenes/FondoPochoclos1.jpg) !important;
-    background-position:center ;
-    background-size:cover;
-    background-attachment: fixed;} */
 form{
     width:350px;
     height:380px;
@@ -30,8 +24,6 @@ input{
     background: rgba(0, 0, 0, 0.829);
     border-color: #ffce462c;
 }
-
-
 label{
     font-size: 90%;
     left: 0;
@@ -41,7 +33,6 @@ label{
     transition: all 0.3s ease;
     color: #ffd59ecc;
 }
-
 .inputGroup :is(input:focus, input:valid)~label {
     transform: translateY(-50%) scale(.9);
     margin: 0em;
@@ -49,10 +40,10 @@ label{
     padding: 0;
     border-radius: 15px;
   }
-.pInputText{
+.p-inputtext{
     margin-left: 2px;
     margin-top: 5px;
-    
+    color: white;
 }
 .p-inputtext:enabled:focus{
     box-shadow: 0 0 0 0.1rem #ffd078;
@@ -68,7 +59,7 @@ button{
         padding-right: 5px;   
         margin-bottom: 10px; 
         margin-top: 10px;   
-        background-color: #ffd27eb6; 
+        background-color: #ffd27e; 
         border-color: #4e000000; 
         border-style: solid; 
         border-radius: 100px;  
@@ -77,5 +68,3 @@ button{
         position: relative;
         left: 180px;
       }
-      button p{
-        color: rgb(17, 17, 17);}

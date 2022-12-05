@@ -7,3 +7,17 @@ h1{
 .botonAgregar{
     margin: 30px;
 }
+form{
+    width: 450px;
+    height: 500px; 
+    margin: auto;
+}
+
+input , textarea{
+    width: 100%;
+    padding: 1rem;
+} 
+@media (max-width:480px){
+    form{
+        width: 100%;
+    }}

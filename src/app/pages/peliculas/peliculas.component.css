@@ -4,14 +4,21 @@ h1{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-button{
-    margin: 20px;
+::ng-deep.p-button{
+    border-radius: 50px;
 }
 
 form{
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 500px; 
+    margin: auto;
 }
+
 input , textarea{
     width: 100%;
-}
+    padding: 1rem;
+} 
+@media (max-width:480px){
+    form{
+        width: 100%;
+    }}
