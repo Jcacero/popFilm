@@ -2,7 +2,7 @@
 <app-carousel [miMultimedia]="arregloSeries" (borrar)="borrarSerie($event)" (editar)="mostrarEditar($event)"></app-carousel>
 
 <!-- Boton para agregar  -->
-<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded botonAgregar" (click)="mostrarDialogo()"></button>
+<button pButton pRipple type="button"  icon="pi pi-plus" class="p-button-rounded botonAgregar" *ngIf="admin===true" (click)="mostrarDialogo()"></button>
 
 
 <!-- Formulario para agregar multimedia -->
@@ -14,10 +14,6 @@
     <span class="p-float-label m-4" >
         <input type="text" pInputText formControlName="titulo">
         <label for="float-input">Titulo</label>
-    </span>
-    <span class="p-float-label m-4">
-        <p-dropdown [options]="tipos" [(ngModel)]="tipoSeleccionado" formControlName="tipo" optionLabel="name"></p-dropdown>
-        <label for="float-input">Tipo: serie/pelicula</label>
     </span>
     <span class="p-float-label m-4" >
         <textarea pInputTextarea formControlName="descripcion"></textarea>
@@ -70,7 +66,7 @@
         <label for="float-input">Cantidad de capitulos</label>
     </span>
 
-    <input type="file" pInputText accept="imagen/*" (change)="cargarImagen($event)">
+    <input type="file" [hidden]="habilitarImagen" pInputText formControlName="imagenMultimedia" accept="imagen/*" (change)="cargarImagen($event)">
     <p><b>Imagen serleccionada:</b> </p><img  [src]="imagen" alt="sin imagen" width="50px" height="50px" style="margin: 5px;"><br>
 
 

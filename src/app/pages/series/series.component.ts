@@ -3,6 +3,7 @@ import { Series } from 'src/app/models/series';
 import { SeriesService } from 'src/app/servicios/series.service';
 import { StorageService } from 'src/app/servicios/storage.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-series',
   templateUrl: './series.component.html',
@@ -10,20 +11,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SeriesComponent implements OnInit {
 
-  tipos: any[];
-  tipoSeleccionado: string;
+
   generos: any[];
   generoSeleccionado: string;
   value10: any;
 
-  arregloSeries:Series [];
 
-  constructor(private servicioSeries:SeriesService,private servicioStorage: StorageService) { 
 
-      this.tipos = [
-        {name: 'Pelicula'},
-        {name: 'Serie'},
-      ];
+  constructor(private servicioSeries:SeriesService,private servicioStorage: StorageService, private galletita: CookieService) { 
+
   
       this.generos = [
         {name: 'Terror'},
@@ -38,19 +34,26 @@ export class SeriesComponent implements OnInit {
   ngOnInit(): void {
     this.servicioSeries.obtenerSeries().subscribe(series=>
       this.arregloSeries=series)
+
+      this.admin=this.galletita.check("sesionIniciada")
   }
 
+  admin:boolean=false;
+
+  arregloSeries:Series [];
   textoBoton:string;
   serieSeleccionada:Series;
   eliminarVisible:boolean=false;
   imagen:string;
   nombreImagen:string;
+  modalVisible:boolean=false;
+  habilitarImagen:boolean=false;
 
   
   
   serie=new FormGroup({
     titulo:new FormControl('',Validators.required),
-    tipo:new FormControl('',Validators.required),
+    tipo:new FormControl(''),
     descripcion:new FormControl('',Validators.required),
     genero:new FormControl('',Validators.required),
     ano:new FormControl('',Validators.required),
@@ -63,16 +66,15 @@ export class SeriesComponent implements OnInit {
     musica:new FormControl('',Validators.required),
     numeroTemporadas:new FormControl('',Validators.required),
     cantidadCaps:new FormControl('',Validators.required),
-    imagenMultimedia:new FormControl
+    imagenMultimedia: new FormControl("", Validators.required) 
   })
   
-  modalVisible:boolean=false;
 
   agregarSerie(){
     if(this.serie.valid){
       let nuevaSerie:Series ={
         titulo:this.serie.value.titulo!,
-        tipo:this.serie.value.tipo!,
+        tipo:"Serie",
         descripcion:this.serie.value.descripcion!,
         genero:this.serie.value.genero!,
         ano:this.serie.value.ano!,
@@ -111,7 +113,37 @@ export class SeriesComponent implements OnInit {
     }
   }
 
+  editarSerie(){
+    this.serie.removeControl("imagenMultimedia")
+    let datos:Series ={
+      titulo:this.serie.value.titulo!,
+      tipo:this.serie.value.tipo!,
+      descripcion:this.serie.value.descripcion!,
+      genero:this.serie.value.genero!,
+      ano:this.serie.value.ano,
+      pais:this.serie.value.pais!,
+      duracion:this.serie.value.duracion,
+      productora:this.serie.value.productora!,
+      reparto:this.serie.value.reparto!,
+      guion:this.serie.value.guion!,
+      direccion:this.serie.value.direccion!,
+      musica:this.serie.value.musica!,
+      cantidadCaps:this.serie.value.cantidadCaps,
+      numeroTemporadas:this.serie.value.numeroTemporadas,
+      imagenMultimedia:this.serieSeleccionada.imagenMultimedia,
+      id_serie:this.serieSeleccionada.id_serie,
+    }
+    this.servicioSeries.modificarSerie(this.serieSeleccionada.id_serie,datos).then(s=>{
+      alert("La serie fue modificada con éxito")
+    })
+    .catch((error)=>{
+      alert("No se pudo modificar la serie \n Error:"+error)
+    })
+  }
+
   mostrarDialogo(){
+    this.habilitarImagen=false;
+    this.serie.setControl("imagenMultimedia",new FormControl("", Validators.required))
     this.textoBoton="Agregar Serie"
     this.modalVisible=true;
   }
@@ -152,6 +184,8 @@ export class SeriesComponent implements OnInit {
   }
 
   mostrarEditar(serieSeleccionada:Series){
+    this.imagen="";
+    this.habilitarImagen=true;
     this.serieSeleccionada=serieSeleccionada
     this.textoBoton="Editar Serie"
     this.modalVisible=true;
@@ -175,30 +209,5 @@ export class SeriesComponent implements OnInit {
     })
   }
 
-  editarSerie(){
-    let datos:Series ={
-      titulo:this.serie.value.titulo!,
-      tipo:this.serie.value.tipo!,
-      descripcion:this.serie.value.editorial!,
-      genero:this.serie.value.genero!,
-      ano:this.serie.value.ano!,
-      pais:this.serie.value.pais!,
-      duracion:this.serie.value.duracion!,
-      productora:this.serie.value.productora!,
-      reparto:this.serie.value.reparto!,
-      guion:this.serie.value.guion!,
-      direccion:this.serie.value.direccion!,
-      musica:this.serie.value.musica!,
-      cantidadCaps:this.serie.value.cantidadCaps!,
-      numeroTemporadas:this.serie.value.numeroTemporadas!,
-      imagenMultimedia:this.serie.value.imagenMultimedia!,
-      id_serie:this.serie.value.id_serie!,
-    }
-    this.servicioSeries.modificarSerie(this.serieSeleccionada.id_serie,datos).then(s=>{
-      alert("La serie fue modificada con éxito")
-    })
-    .catch((error)=>{
-      alert("No se pudo modificar la serie \n Error:"+error)
-    })
-  }
+  
 }

@@ -13,7 +13,6 @@ import { CookieService } from 'ngx-cookie-service';
 export class PeliculasComponent implements OnInit {
 
 
-  tipoSeleccionado: string;
   generos: any[];
   generoSeleccionado: string;
   value10: any;
@@ -51,6 +50,7 @@ export class PeliculasComponent implements OnInit {
   
   multimedia=new FormGroup({
     titulo:new FormControl('',Validators.required),
+    tipo:new FormControl(''),
     descripcion:new FormControl('',Validators.required),
     genero:new FormControl('',Validators.required),
     ano:new FormControl('',Validators.required),
