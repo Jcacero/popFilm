@@ -46,11 +46,4 @@ export class InfoMultimediaComponent implements OnInit {
 
     
   }
-
-
-
-
-  
-  
-
 }
