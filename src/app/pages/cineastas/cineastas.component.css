@@ -216,7 +216,6 @@ p{
     padding: 0px 1.5rem 1rem 1.5rem;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    text-align: center;
 }
 ::ng-deep.p-dialog .p-dialog-footer {
     border-top: 0 none;
@@ -243,18 +242,12 @@ p{
 /* apodo que se muestra en el dialogo mas info */
 h2{
     text-align: center;
-    margin: 20px;
-}
-
+    margin: 20px;}
 button{
-    margin: 20px;
-}
-
+    margin: 20px;}
 form{
     width: 500px;
-    height: 500px;
-}
+    height: 500px;}
 input , textarea{
-    width: 100%;
-}
+    width: 100%;}
 
