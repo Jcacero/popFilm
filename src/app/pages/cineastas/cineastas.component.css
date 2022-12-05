@@ -4,7 +4,6 @@ p{
 }
 :host ::ng-deep .p-button {
     margin: 0 .5rem 0 0;
-    min-width: 10rem;
 }
 
 
@@ -258,5 +257,17 @@ p{
 h2{
     text-align: center;
     margin: 20px;
+}
+
+button{
+    margin: 20px;
+}
+
+form{
+    width: 500px;
+    height: 500px;
+}
+input , textarea{
+    width: 100%;
 }
 

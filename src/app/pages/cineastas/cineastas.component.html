@@ -22,15 +22,17 @@
                 <h2>{{i.nombreApodo}}</h2>
                 <p><b>Roles:</b>  {{i.rol}}</p>
                 <hr>
-<<<<<<< HEAD
                 <p-button (click)="showModalDialog(i)" label="Más Información"></p-button>
-=======
-                <p-button (click)="showModalDialog(i)" label="+info"></p-button>
 
                 <!-- Botones para administrador -->
+
                 <button style="margin-right:10px;"  pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
                 <button pButton pRipple type="button" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
 >>>>>>> 64888ac73921210363cd0084aaa9c8046bf6f4af
+=======
+                <button style="margin-right:10px;" *ngIf="admin===true" pButton pRipple type="button" (click)="mostrarEditar(i)" icon="pi pi-pencil" class="p-button-rounded p-button-outlined"></button>
+                <button pButton pRipple type="button" *ngIf="admin===true" (click)="mostrarEliminar(i)" icon="pi pi-trash" class="p-button-rounded p-button-danger p-button-outlined"></button>
+>>>>>>> 0ff68663085ff022c1009605e7457fd58874b795
             </div>
         </div>
         <!-- FUNCION QUE LLAMA EL DIALOGO -->
